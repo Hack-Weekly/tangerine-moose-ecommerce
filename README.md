@@ -26,3 +26,9 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## Local setup
+
+* Copy the contents of `.env.example` into a file named `.env` and fill in the discord client ID and secret after [creating an app](https://discord.com/developers/docs/getting-started#step-1-creating-an-app).
+* Run `npm i` to install project dependencies, `npx prisma db push` to create the prisma client, and then start the application with `npm run dev`.
+* You should be able to sign in and then see your new account created by running `npx prisma studio`.
