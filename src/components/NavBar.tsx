@@ -20,7 +20,7 @@ export default function NavBar() {
       <Navbar.Content>
         <Navbar.Item>
           <Button bordered onClick={sessionData ? () => void signOut() : () => void signIn()}>
-            <Text>{sessionData ? "Sign out" : "Sign in with Disord"}</Text>
+            <Text>{sessionData ? "Sign out" : "Sign in with Discord"}</Text>
           </Button>
         </Navbar.Item>
       </Navbar.Content>
