@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
-import Head from "next/head";
+import Image from "next/image";
+import { Flex, Text } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 
 import { api } from "~/utils/api";
@@ -8,23 +9,17 @@ import styles from "./index.module.css";
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Tangerine</title>
-        <meta name="description" content="Tangerine Moose Store" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.showcaseContainer}>
-            <AuthShowcase />
-          </div>
+      <div className={styles.container}>
+        <div className={styles.showcaseContainer}>
+          <AuthShowcase />
         </div>
-      </main>
+      </div>
     </>
   );
 };
 
 export default Home;
+
 const AuthShowcase: React.FC = () => {
   const { data: sessionData } = useSession();
 
@@ -39,6 +34,12 @@ const AuthShowcase: React.FC = () => {
         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
         {secretMessage && <span> - {secretMessage}</span>}
       </p>
+      <Flex flexDir={"column"} gap={16}>
+        <Text>Test content for scroll</Text>
+        <Image src={"/beans.jpg"} alt="beans" width={1120} height={1080} />
+        <Image src={"/beans.jpg"} alt="beans" width={1120} height={1080} />
+        <Image src={"/beans.jpg"} alt="beans" width={1120} height={1080} />
+      </Flex>
     </div>
   );
 };
