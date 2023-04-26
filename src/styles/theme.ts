@@ -1,11 +1,11 @@
-import '@fontsource/space-grotesk/500.css';
-import '@fontsource/space-grotesk/700.css';
-
 import { extendTheme } from "@chakra-ui/react";
+import { Space_Grotesk } from 'next/font/google';
+
+const space_grotesk = Space_Grotesk({ subsets: ['latin'] });
 
 export const theme = extendTheme({
     fonts: {
-        body: `'Space Grotesk', sans-serif`,
+        space_grotesk: space_grotesk.style.fontFamily,
     },
     textStyles: {
         navButton: {
