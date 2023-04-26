@@ -55,7 +55,7 @@ export default function NavBar() {
           </Box>
         </Flex>
         {isOpen && (
-          <Box pb={4} display={{ md: "none" }}>
+          <Stack pb={4} display={{ md: "none" }} spacing={4}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
                 <Link textColor={"#000"} key={link} href={"#"}>
@@ -63,7 +63,10 @@ export default function NavBar() {
                 </Link>
               ))}
             </Stack>
-          </Box>
+            <ActionButton onClick={sessionData ? () => void signOut() : () => void signIn()}>
+              {sessionData ? "Sign out" : "Sign in"}
+            </ActionButton>
+          </Stack>
         )}
       </Box>
     </Flex>
