@@ -15,10 +15,10 @@ export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex as={"header"} position={"fixed"} w={"100%"}>
-      <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"}>
+    <Flex as={"header"} position={"sticky"} top={0} w={"100%"} zIndex={"sticky"}>
+      <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"} color={"black"}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box display={{ md: "none" }}>
+          <Box display={{ lg: "none" }}>
             <IconButton
               size={"md"}
               color={"black"}
@@ -33,7 +33,7 @@ export default function NavBar() {
               onClick={isOpen ? onClose : onOpen}
             />
           </Box>
-          <HStack as={"nav"} spacing={1} alignItems={"center"} display={{ base: "none", md: "flex" }}>
+          <HStack as={"nav"} spacing={1} alignItems={"center"} display={{ base: "none", lg: "flex" }}>
             {Links.map((link) => (
               <NavButton key={link}>{link}</NavButton>
             ))}
@@ -55,10 +55,10 @@ export default function NavBar() {
           </Box>
         </Flex>
         {isOpen && (
-          <Stack pb={4} display={{ md: "none" }} spacing={4}>
+          <Stack pb={4} display={{ lg: "none" }} spacing={4}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <Link textColor={"#000"} key={link} href={"#"}>
+                <Link key={link} href={"#"}>
                   {link}
                 </Link>
               ))}
