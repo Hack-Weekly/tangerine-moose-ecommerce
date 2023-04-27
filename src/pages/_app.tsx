@@ -22,7 +22,7 @@ const App: AppType<{ session: Session | null }> = ({ Component, pageProps: { ses
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <NavBar />
-          <Container as="main" pt="98px">
+          <Container as="main" pt="98px" maxW={"1120px"}>
             <Component {...pageProps} />
           </Container>
         </div>
