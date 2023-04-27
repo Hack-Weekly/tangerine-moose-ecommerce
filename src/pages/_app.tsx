@@ -9,23 +9,19 @@ import NavBar from "~/components/NavBar";
 import { theme } from "~/styles";
 import { api } from "~/utils/api";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
-
 const App: AppType<{ session: Session | null }> = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <SessionProvider session={session}>
       <ChakraProvider theme={theme}>
-        <div className={spaceGrotesk.className}>
-          <Head>
-            <title>TANGERINE</title>
-            <meta name="description" content="Tangerine Moose Ecommerce App" />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <NavBar />
-          <Container as="main" pt="98px">
-            <Component {...pageProps} />
-          </Container>
-        </div>
+        <Head>
+          <title>TANGERINE</title>
+          <meta name="description" content="Tangerine Moose Ecommerce App" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <NavBar />
+        <Container as="main" maxW="container.xl">
+          <Component {...pageProps} />
+        </Container>
       </ChakraProvider>
     </SessionProvider>
   );
