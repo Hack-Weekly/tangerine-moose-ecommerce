@@ -8,14 +8,19 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { ActionButton } from "./Button";
 import NavButton from "./NavButton";
 
-const Links = ["Coffee", "Tea", "Equipment", "About us"];
+const Links = [
+  { label: "Coffee", href: "/coffee" },
+  { label: "Tea", href: "/tea" },
+  { label: "Equipment", href: "/equipment" },
+  { label: "About us", href: "/about" },
+];
 
 export default function NavBar() {
   const { data: sessionData } = useSession();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex as={"header"} position={"fixed"} w={"100%"}>
+    <Flex as={"header"} position={"fixed"} w={"100%"} zIndex={1}>
       <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box display={{ md: "none" }}>
@@ -34,15 +39,17 @@ export default function NavBar() {
             />
           </Box>
           <HStack as={"nav"} spacing={1} alignItems={"center"} display={{ base: "none", md: "flex" }}>
-            {Links.map((link) => (
-              <NavButton key={link}>{link}</NavButton>
+            {Links.map(({ label, href }) => (
+              <NavButton key={href} href={href}>
+                {label}
+              </NavButton>
             ))}
           </HStack>
           <AbsoluteCenter axis={"horizontal"}>
             <Link
               fontWeight={"bold"}
               fontSize={"4xl"}
-              href={"#"}
+              href={"/"}
               _focusVisible={{ outline: "none", textDecoration: "underline" }}
             >
               TANGERINE
@@ -57,9 +64,9 @@ export default function NavBar() {
         {isOpen && (
           <Stack pb={4} display={{ md: "none" }} spacing={4}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <Link textColor={"#000"} key={link} href={"#"}>
-                  {link}
+              {Links.map(({ label, href }) => (
+                <Link textColor={"primary.500"} key={href} href={href}>
+                  {label}
                 </Link>
               ))}
             </Stack>

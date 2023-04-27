@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@chakra-ui/next-js";
 
-const NavButton = ({ children }: { children: ReactNode }) => (
+const NavButton = ({ href, children }: { href: string; children: ReactNode }) => (
   <Link
     px={2}
     py={1}
@@ -19,7 +19,7 @@ const NavButton = ({ children }: { children: ReactNode }) => (
       textDecoration: "none",
       border: "1px solid black",
     }}
-    href={"#"}
+    href={href}
   >
     {children}
   </Link>
