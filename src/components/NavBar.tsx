@@ -1,13 +1,11 @@
-"use client";
-
 import { ShoppingBag } from "@carbon/icons-react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
-import { AbsoluteCenter, Box, Button, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { useCart } from "~/contexts/cart";
-import { ActionButton } from "./Button";
+import { ActionButton, OutlineButton } from "./Button";
 import NavButton from "./NavButton";
 
 const Links = [
@@ -65,10 +63,9 @@ export default function NavBar() {
             >
               {sessionData ? "Sign out" : "Sign in"}
             </ActionButton>
-            <Button
-              bg="none"
-              alignItems={"center"}
+            <OutlineButton
               aria-label={"Cart"}
+              minW={"auto"}
               onClick={() => {
                 // TODO: Open cart modal
               }}
@@ -78,7 +75,7 @@ export default function NavBar() {
                 Cart
               </Box>
               {totalQuantity > 0 && <Box as={"span"} marginLeft={2} color={"red.700"}>{`(${totalQuantity})`}</Box>}
-            </Button>
+            </OutlineButton>
           </HStack>
         </Flex>
         {isOpen && (

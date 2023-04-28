@@ -1,11 +1,10 @@
 import { Center, SimpleGrid } from "@chakra-ui/react";
 
 import ProductCard from "~/components/ProductCard";
-import { type Product } from "~/types/product";
+import { type Coffee, type Equipment, type Tea } from "~/types/product";
 
-// TODO: fix types
 type ProductListProps = {
-  products: Product[];
+  products: (Coffee | Tea | Equipment)[];
 };
 export const ProductList = ({ products }: ProductListProps) => {
   return (

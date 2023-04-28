@@ -1,4 +1,4 @@
-import type { Coffee, Equipment, Tea } from "~/components/types/product";
+import type { Coffee, Equipment, Tea } from "~/types/product";
 
 const coffeeProducts: Coffee[] = [
   {

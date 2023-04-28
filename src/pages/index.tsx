@@ -1,10 +1,11 @@
 import { type NextPage } from "next";
 
 import { ProductList } from "~/components/ProductList";
-import { testProducts } from "~/data/data";
+import { coffeeProducts, equipmentProducts, teaProducts } from "~/data/data";
 
+const products = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
 const Home: NextPage = () => {
-  return <ProductList products={testProducts} />;
+  return <ProductList products={products} />;
 };
 
 export default Home;

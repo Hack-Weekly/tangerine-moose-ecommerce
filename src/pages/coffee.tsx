@@ -1,10 +1,14 @@
 import type { NextPage } from "next";
 
 import { ProductList } from "~/components/ProductList";
-import { testProducts } from "~/data/data";
+import { coffeeProducts } from "~/data/data";
 
 const CoffeePage: NextPage = () => {
-  return <ProductList products={testProducts} />;
+  return (
+    <>
+      <ProductList products={coffeeProducts} />;
+    </>
+  );
 };
 
 export default CoffeePage;
