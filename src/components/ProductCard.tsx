@@ -13,9 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ActionButton } from "./Button";
-import CoffeeModal from "./CoffeeModal";
-import EquipmentModal from "./EquipmentModal";
-import TeaModal from "./TeaModal";
+import ProductModal from "./ProductModal";
 import type { Coffee, Equipment, Tea } from "./types/product";
 
 const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
@@ -35,7 +33,7 @@ const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
             <Image src={product.image_url} alt={product.name} />
             <Stack bg={"secondary.500"} p={4}>
               <Flex alignItems={"center"} justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl">
-                <LinkOverlay href={`/${product.type}/${product.slug}`}>
+                <LinkOverlay href={`/product/${product.slug}`}>
                   <Text>{product.name}</Text>
                 </LinkOverlay>
                 <Text>{`$${product.base_price / 100}`}</Text>
@@ -50,10 +48,7 @@ const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
           </ActionButton>
         </CardFooter>
       </Card>
-
-      {"grindOptions" in product && <CoffeeModal product={product} isOpen={isOpen} onClose={onClose} />}
-      {"format" in product && <TeaModal product={product} isOpen={isOpen} onClose={onClose} />}
-      {"variant_type" in product && <EquipmentModal product={product} isOpen={isOpen} onClose={onClose} />}
+      <ProductModal product={product} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

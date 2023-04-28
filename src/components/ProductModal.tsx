@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import {
   Flex,
   Image,
@@ -12,17 +11,16 @@ import {
   Text,
 } from "@chakra-ui/react";
 
+import ProductContent from "./ProductContent";
+import type { Coffee, Equipment, Tea } from "./types/product";
+
 type ModalProps = {
+  product: Coffee | Tea | Equipment;
   isOpen: boolean;
   onClose: () => void;
-  name: string;
-  imageUrl: string;
-  primaryTag: string;
-  description: string;
-  children: ReactNode;
 };
 
-const ProductModal = ({ isOpen, onClose, name, imageUrl, primaryTag, description, children }: ModalProps) => (
+const ProductModal = ({ product, isOpen, onClose }: ModalProps) => (
   <Modal isOpen={isOpen} onClose={onClose} isCentered size={["full", "lg", "xl"]} blockScrollOnMount={false}>
     <ModalOverlay backdropFilter={"blur(2px)"} />
     <ModalContent p={"1rem"} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
@@ -39,15 +37,14 @@ const ProductModal = ({ isOpen, onClose, name, imageUrl, primaryTag, description
       />
       <ModalBody fontFamily={"space_grotesk"}>
         <Stack direction={["column", "row"]}>
-          <Image src={imageUrl} alt={name} boxSize={"200px"} alignSelf={"center"} />
+          <Image src={product.image_url} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
           <Flex flexDir={"column"} gap={4}>
             <Text fontWeight={"bold"} fontSize="xl">
-              {name}
+              {product.name}
             </Text>
-            <Text>{primaryTag.toUpperCase()}</Text>
-            <Text>{description}</Text>
-
-            {children}
+            <Text>{product.primary_tag.toUpperCase()}</Text>
+            <Text>{product.description}</Text>
+            <ProductContent product={product} />
           </Flex>
         </Stack>
       </ModalBody>

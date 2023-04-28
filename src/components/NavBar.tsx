@@ -20,7 +20,7 @@ export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex as={"header"} position={"sticky"} top={0} w={"100%"} zIndex={"sticky"}>
+    <Flex as={"header"} position={"sticky"} top={0} w={"100%"} zIndex={"sticky"} fontFamily={"space_grotesk"}>
       <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"} color={"black"}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box display={{ lg: "none" }}>

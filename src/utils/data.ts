@@ -748,4 +748,6 @@ const equipmentProducts: Equipment[] = [
   },
 ];
 
-export { coffeeProducts, teaProducts, equipmentProducts };
+const allProducts: (Coffee | Tea | Equipment)[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+
+export { coffeeProducts, teaProducts, equipmentProducts, allProducts };
