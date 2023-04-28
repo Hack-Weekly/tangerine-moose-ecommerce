@@ -57,7 +57,7 @@ const EquipmentModal = ({ product, isOpen, onClose }: { product: Equipment; isOp
         <ActionButton
           onClick={() => {
             console.log("value: ", value);
-            onClose;
+            onClose();
           }}
           square
           leftIcon={<AddIcon />}

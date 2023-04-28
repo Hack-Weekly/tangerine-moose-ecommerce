@@ -27,7 +27,16 @@ const ProductModal = ({ isOpen, onClose, name, imageUrl, primaryTag, description
     <ModalOverlay backdropFilter={"blur(2px)"} />
     <ModalContent p={"1rem"} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
       <ModalHeader p={4} />
-      <ModalCloseButton />
+      <ModalCloseButton
+        variant={"outline"}
+        colorScheme={"secondary"}
+        border={"1px solid transparent"}
+        borderRadius={0}
+        _hover={{
+          bg: "none",
+          border: "1px solid black",
+        }}
+      />
       <ModalBody fontFamily={"space_grotesk"}>
         <Stack direction={["column", "row"]}>
           <Image src={imageUrl} alt={name} boxSize={"200px"} alignSelf={"center"} />

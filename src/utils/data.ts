@@ -631,8 +631,8 @@ const equipmentProducts: Equipment[] = [
     base_price: 4200,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/equipment/v60.svg",
+    color: "#a2a2a2",
     variant_type: "Variant",
     variants: [
       {
@@ -643,12 +643,12 @@ const equipmentProducts: Equipment[] = [
       {
         label: "Ceramic",
         value: "ceramic",
-        price: 4200,
+        price: 4800,
       },
       {
         label: "Glass",
         value: "glass",
-        price: 4200,
+        price: 4900,
       },
     ],
   },
