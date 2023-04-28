@@ -1,6 +1,6 @@
 type ProductType = "coffee" | "tea" | "equipment";
 
-interface ProductProps {
+interface Product {
   id: number;
   name: string;
   slug: string;
@@ -17,6 +17,12 @@ interface ProductProps {
   color: string;
 }
 
+type Variant = {
+  label: string;
+  value: string;
+  price: number;
+};
+
 type GrindOption =
   | { value: "whole"; label: "Whole Bean" }
   | { value: "drip"; label: "Drip" }
@@ -26,9 +32,27 @@ type CoffeeVariant = {
   price: number;
 };
 
-interface CoffeeProps extends ProductProps {
+interface Coffee extends Product {
   variants: CoffeeVariant[];
   grindOptions: GrindOption[];
 }
 
-export type { CoffeeProps };
+type TeaVariant = {
+  variant: {
+    label: string;
+    amount: number;
+  };
+  price: number;
+};
+
+interface Tea extends Product {
+  format: "loose-leaf" | "tea-bags";
+  variants: TeaVariant[];
+}
+
+interface Equipment extends Product {
+  variant_type: "Size" | "Capacity" | "Variant";
+  variants: Variant[];
+}
+
+export type { Coffee, Tea, Equipment, Variant };

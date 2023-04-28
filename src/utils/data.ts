@@ -1,8 +1,8 @@
-import type { CoffeeProps } from "~/components/types/product";
+import type { Coffee, Equipment, Tea } from "~/components/types/product";
 
-const testProducts: CoffeeProps[] = [
+const coffeeProducts: Coffee[] = [
   {
-    id: 1,
+    id: 1001,
     name: "Tangerine House Blend",
     slug: "tangerine-house-blend",
     description: "Medium roast, balanced, slightly acidic, sweet. Notes: citrus, berry, chocolate.",
@@ -14,7 +14,7 @@ const testProducts: CoffeeProps[] = [
     base_price: 1900,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
+    image_url: "/coffee/bean-bag-fe8a26.svg",
     color: "#fe8a26",
     variants: [
       {
@@ -46,7 +46,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 2,
+    id: 1002,
     name: "Hanoi Robusta Blend",
     slug: "hanoi-robusta-blend",
     description:
@@ -59,8 +59,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-076a04.svg",
+    color: "#076a04",
     variants: [
       {
         variant: {
@@ -91,7 +91,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 3,
+    id: 1003,
     name: "Gazebo Light Roast",
     slug: "gazebo-light-roast",
     description: "Mellow, acidic, fruity. Notes: honey, citrus, rose",
@@ -103,8 +103,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-04546a.svg",
+    color: "#04546a",
     variants: [
       {
         variant: {
@@ -135,7 +135,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 4,
+    id: 1004,
     name: "Portico Medium Roast",
     slug: "portico-medium-roast",
     description: "Balanced, rounded acidity, sweet. Notes: caramel, almond, berry",
@@ -147,8 +147,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-381995.svg",
+    color: "#381995",
     variants: [
       {
         variant: {
@@ -179,7 +179,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 5,
+    id: 1005,
     name: "Turret Dark Roast",
     slug: "turret-dark-roast",
     description: "Full body, low acid, roasty. Notes: dark chocolate, nutmeg, hazelnut",
@@ -191,8 +191,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-4d2364.svg",
+    color: "#4d2364",
     variants: [
       {
         variant: {
@@ -223,7 +223,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 6,
+    id: 1006,
     name: "Gallery French Roast",
     slug: "gallery-french-roast ",
     description: "Double roasted, dark, intense. Notes: smoky, dark chocolate, caramel",
@@ -235,8 +235,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-730640.svg",
+    color: "#730640",
     variants: [
       {
         variant: {
@@ -267,7 +267,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 7,
+    id: 1007,
     name: "Costa Rica",
     slug: "costa-rica ",
     description: "Single origin medium roast. Notes: apricot, citrus, berry",
@@ -279,8 +279,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-73060f.svg",
+    color: "#73060f",
     variants: [
       {
         variant: {
@@ -311,7 +311,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 8,
+    id: 1008,
     name: "Guatemala",
     slug: "guatemala",
     description: "Single origin light roast, washed. Notes: citrus, almond, chamomile",
@@ -323,8 +323,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-636637.svg",
+    color: "#636637",
     variants: [
       {
         variant: {
@@ -355,7 +355,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 9,
+    id: 1009,
     name: "Indonesia",
     slug: "indonesia",
     description: "Single origin from Sumatra, dark roast, washed. Notes: dark chocolate, tobacco, caramel",
@@ -367,8 +367,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-d86d56.svg",
+    color: "#d86d56",
     variants: [
       {
         variant: {
@@ -399,7 +399,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 10,
+    id: 1010,
     name: "Hawaii Kona",
     slug: "hawaii-kona",
     description:
@@ -412,8 +412,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-51a696.svg",
+    color: "#51a696",
     variants: [
       {
         variant: {
@@ -444,7 +444,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 11,
+    id: 1011,
     name: "Ethiopia",
     slug: "ethiopia",
     description: "Single origin light roast, washed. Notes: berry, almond, lemon",
@@ -456,8 +456,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-5369ce.svg",
+    color: "#5369ce",
     variants: [
       {
         variant: {
@@ -488,7 +488,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 12,
+    id: 1012,
     name: "Brazil",
     slug: "brazil",
     description: "Single origin medium roast, honey processed. Notes: dark chocolate, orange, almond",
@@ -500,8 +500,8 @@ const testProducts: CoffeeProps[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-d0d464.svg",
+    color: "#d0d464",
     variants: [
       {
         variant: {
@@ -533,4 +533,125 @@ const testProducts: CoffeeProps[] = [
   },
 ];
 
-export { testProducts };
+const teaProducts: Tea[] = [
+  {
+    id: 2001,
+    name: "Earl Grey Loose Tea",
+    slug: "early-grey-loose-tea",
+    description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "loose leaf"],
+    base_price: 900,
+    available: true,
+    price_varies: true,
+    image_url: "/tea/loose-leaf-614dac.svg",
+    color: "#614dac",
+    format: "loose-leaf",
+    variants: [
+      {
+        variant: {
+          label: "50g",
+          amount: 50,
+        },
+        price: 900,
+      },
+      {
+        variant: {
+          label: "100g",
+          amount: 100,
+        },
+        price: 1800,
+      },
+      {
+        variant: {
+          label: "250g",
+          amount: 250,
+        },
+        price: 4200,
+      },
+    ],
+  },
+  {
+    id: 2001,
+    name: "Earl Grey Tea Bags",
+    slug: "early-grey-tea-bags",
+    description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "tea bags"],
+    base_price: 900,
+    available: true,
+    price_varies: true,
+    image_url: "/tea/tea-bag-586699.svg",
+    color: "#586699",
+    format: "tea-bags",
+    variants: [
+      {
+        variant: {
+          label: "20 Tea Bags",
+          amount: 20,
+        },
+        price: 800,
+      },
+      {
+        variant: {
+          label: "50 Tea Bags",
+          amount: 50,
+        },
+        price: 1600,
+      },
+      {
+        variant: {
+          label: "100 Tea Bags",
+          amount: 100,
+        },
+        price: 2900,
+      },
+    ],
+  },
+];
+
+const equipmentProducts: Equipment[] = [
+  {
+    id: 3001,
+    name: "Hario V60",
+    slug: "hario-v60",
+    description:
+      "Cone-shape coffee dripper designed for accessibility, versatility, and most importantly, making good coffee",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "equipment",
+    primary_tag: "brewer",
+    tags: ["brewer"],
+    base_price: 4200,
+    available: true,
+    price_varies: true,
+    image_url: "/equipment/v60.svg",
+    color: "#a2a2a2",
+    variant_type: "Variant",
+    variants: [
+      {
+        label: "Plastic",
+        value: "plastic",
+        price: 4200,
+      },
+      {
+        label: "Ceramic",
+        value: "ceramic",
+        price: 4800,
+      },
+      {
+        label: "Glass",
+        value: "glass",
+        price: 4900,
+      },
+    ],
+  },
+];
+
+export { coffeeProducts, teaProducts, equipmentProducts };

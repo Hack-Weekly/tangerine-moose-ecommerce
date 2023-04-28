@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="200 100 700 1000" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g id="Layer-1" transform="matrix(1, 0, 0, 1, 19.141998, 92.046242)">
+    <path d="M437.254 302.315C437.254 302.315 439.68 268.904 459.104 251.957C478.527 235.01 534.12 229.237 534.12 229.237C534.12 229.237 578.27 221.357 618.819 241.146C659.367 260.934 640.817 305.049 682.814 325.81C724.812 346.571 743.249 345.781 779.208 339.301C815.167 332.822 813.307 312.436 806.902 287.666C800.497 262.897 774.023 253.819 746.691 254.643C719.358 255.467 700.05 256.908 688.481 294.097C676.911 331.286 695.689 364.449 696.338 404.967C696.987 445.484 696.953 453.276 700.927 465.515" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M280.858 781.043L280.858 383.373L320.77 303.549L560.329 302.503L603.058 381.196L602.332 781.043L280.858 781.043Z" fill="#f1d6c4" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M650.299 470.151L660.74 460.615L687.041 460.737L700.173 466.143L711.909 460.801L739.301 460.965L750.063 471.068L761.122 480.384L760.877 559.424L751.125 570.268L740.707 581.236L712.573 581.528L700.593 577.522L690.682 580.757L660.027 580.367L650.832 571.268L640.55 560.149L640.039 481.103L650.299 470.151Z" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959" style="fill: rgb(88, 102, 153);"/>
+  </g>
+  <g id="Layer-2" transform="matrix(1, 0, 0, 1, 19.141998, 92.046242)">
+    <path d="M600.409 380.013L498.166 356.45" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M284.002 386.324L391.294 362.341" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M440.903 778.141L441.357 305.456" fill="#c4a28b" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M321.277 304.74L441.6 401.87L558.966 305.146" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+  </g>
+</svg>

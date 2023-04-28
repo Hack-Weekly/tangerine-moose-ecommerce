@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="300 300 500 700" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g id="Layer-3" transform="matrix(1, 0, 0, 1, 100, 115.117775)"/>
+  <g id="Layer-2" transform="matrix(1, 0, 0, 1, 100, 115.117775)">
+    <path d="M295.788 243.239L225.201 397.991L226.525 843.44L601.505 843.619L599.013 398.98L668.648 244.214L668.762 340.138L636.827 341.666L628.427 333.607L660.559 402.554L658.506 818.048L601.502 843.124L599.02 400.251L628.403 333.661L668.595 244.332L516.388 243.886L295.788 243.239Z" fill="#d7ac8e" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+  </g>
+  <g id="Layer-1" transform="matrix(1, 0, 0, 1, 100, 115.117775)">
+    <path d="M599.024 397.417L668.762 243.239C668.762 243.239 597.751 400.175 599.024 397.417Z" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M624.24 341.522" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M599.012 396.158L599.012 845.297" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M592.728 840.634" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M282.254 419.33L282.254 778.322L544.253 777.117L546.954 418.728L282.254 419.33Z" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959" style="fill: rgb(77, 35, 100);"/>
+    <path d="M347.052 614.694C340.463 587.757 364.355 558.769 400.416 549.949C427.616 543.295 453.97 550.016 468.107 565.28C472.713 570.253 476.022 576.133 477.641 582.752C484.23 609.69 460.338 638.677 424.277 647.498C388.215 656.319 353.641 641.632 347.052 614.694Z" fill="#4c1e00" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+    <path d="M356.606 632.181C356.794 632.506 354.205 611.595 384.114 598.271C397.572 592.276 421.803 604.468 439.754 601.347C461.961 597.487 476.827 579.034 476.827 579.034" fill="none" opacity="1" stroke="#000000" stroke-linecap="butt" stroke-linejoin="round" stroke-width="9.90959"/>
+  </g>
+</svg>
