@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.{js,jsx,cjs,mjs,ts,tsx,css,md,json}\" --ignore-path .gitignore",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "prepare": "husky install",
+    "prepare": "husky install && chmod +x ./.husky/*",
     "start": "next start"
   },
   "lint-staged": {

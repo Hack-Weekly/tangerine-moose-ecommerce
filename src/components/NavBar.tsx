@@ -8,17 +8,22 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { ActionButton } from "./Button";
 import NavButton from "./NavButton";
 
-const Links = ["Coffee", "Tea", "Equipment", "About us"];
+const Links = [
+  { label: "Coffee", href: "/coffee" },
+  { label: "Tea", href: "/tea" },
+  { label: "Equipment", href: "/equipment" },
+  { label: "About us", href: "/about" },
+];
 
 export default function NavBar() {
   const { data: sessionData } = useSession();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex as={"header"} position={"sticky"} top={0} w={"100%"} zIndex={"sticky"}>
-      <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"} color={"black"}>
+    <Flex as={"header"} position={"fixed"} w={"100%"} zIndex={1}>
+      <Box w={"100%"} px={4} m={4} border={"1px solid black"} bg={"white"}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box display={{ lg: "none" }}>
+          <Box display={{ md: "none" }}>
             <IconButton
               size={"md"}
               color={"black"}
@@ -33,16 +38,18 @@ export default function NavBar() {
               onClick={isOpen ? onClose : onOpen}
             />
           </Box>
-          <HStack as={"nav"} spacing={1} alignItems={"center"} display={{ base: "none", lg: "flex" }}>
-            {Links.map((link) => (
-              <NavButton key={link}>{link}</NavButton>
+          <HStack as={"nav"} spacing={1} alignItems={"center"} display={{ base: "none", md: "flex" }}>
+            {Links.map(({ label, href }) => (
+              <NavButton key={href} href={href}>
+                {label}
+              </NavButton>
             ))}
           </HStack>
           <AbsoluteCenter axis={"horizontal"}>
             <Link
               fontWeight={"bold"}
               fontSize={"4xl"}
-              href={"#"}
+              href={"/"}
               _focusVisible={{ outline: "none", textDecoration: "underline" }}
             >
               TANGERINE
@@ -55,11 +62,11 @@ export default function NavBar() {
           </Box>
         </Flex>
         {isOpen && (
-          <Stack pb={4} display={{ lg: "none" }} spacing={4}>
+          <Stack pb={4} display={{ md: "none" }} spacing={4}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <Link key={link} href={"#"}>
-                  {link}
+              {Links.map(({ label, href }) => (
+                <Link textColor={"primary.500"} key={href} href={href}>
+                  {label}
                 </Link>
               ))}
             </Stack>
