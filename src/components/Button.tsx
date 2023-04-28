@@ -1,26 +1,34 @@
-import type { ReactNode } from "react";
+import type {} from "@chakra-ui/icons";
+import type { ReactElement, ReactNode } from "react";
 import { Button, type ButtonOptions } from "@chakra-ui/react";
 
 type ButtonProps = ButtonOptions & {
   onClick: () => void;
+  icon?: ReactElement;
+  full?: boolean;
+  square?: boolean;
+  p?: number;
   children: ReactNode;
 };
 
-const ActionButton = ({ onClick, children, ...props }: ButtonProps) => (
+const ActionButton = ({ onClick, icon, full, square, p, children, ...props }: ButtonProps) => (
   <Button
     variant={"solid"}
+    leftIcon={icon}
     colorScheme={"primary"}
     size={"sm"}
-    width={"100px"}
-    mr={4}
+    minW={"100px"}
+    width={full ? "100%" : "auto"}
+    p={p}
+    borderRadius={square ? "0" : "md"}
     _hover={{
-      boxShadow: "1px 1px white, 2px 2px black",
-      transform: "translate(-2px, -2px)",
+      boxShadow: "2px 2px white, 4px 4px black",
+      transform: "translate(-4px, -4px)",
     }}
     _focusVisible={{
       outline: "none",
-      boxShadow: "1px 1px white, 2px 2px black",
-      transform: "translate(-2px, -2px)",
+      boxShadow: "2px 2px white, 4px 4px black",
+      transform: "translate(-4px, -4px)",
     }}
     onClick={onClick}
     {...props}

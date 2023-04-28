@@ -27,6 +27,7 @@ const Home: NextPage = () => {
             inset={0}
             alignItems={"flex-end"}
             justifyContent={"flex-end"}
+            color={"white"}
           >
             <Text bg={"blackAlpha.900"} p={2}>
               {product.category}
