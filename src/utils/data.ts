@@ -575,7 +575,7 @@ const teaProducts: Tea[] = [
     ],
   },
   {
-    id: 2001,
+    id: 2002,
     name: "Earl Grey Tea Bags",
     slug: "early-grey-tea-bags",
     description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
