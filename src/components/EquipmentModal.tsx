@@ -2,12 +2,18 @@ import { useState } from "react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 
+import type { Equipment, Variant } from "~/types/product";
 import { ActionButton, IconOutlineButton } from "./Button";
 import Dropdown from "./Dropdown";
 import ProductModal from "./ProductModal";
-import type { Equipment, Variant } from "./types/product";
 
-const EquipmentModal = ({ product, isOpen, onClose }: { product: Equipment; isOpen: boolean; onClose: () => void }) => {
+type EquipmentModalProps = {
+  product: Equipment;
+  isOpen: boolean;
+  onAdd: () => void;
+  onClose: () => void;
+};
+const EquipmentModal = ({ product, isOpen, onAdd, onClose }: EquipmentModalProps) => {
   const [price, setPrice] = useState(product.base_price);
   const [variant, setVariant] = useState(product.variants[0]?.label || "");
   const [value, setValue] = useState(product.slug);
@@ -56,7 +62,7 @@ const EquipmentModal = ({ product, isOpen, onClose }: { product: Equipment; isOp
       <div>
         <ActionButton
           onClick={() => {
-            console.log("value: ", value);
+            onAdd();
             onClose();
           }}
           square
