@@ -1,4 +1,4 @@
-type ProductType = 'coffee' | 'tea' | 'equipment';
+type ProductType = "coffee" | "tea" | "equipment";
 
 interface ProductProps {
   id: number;
@@ -17,11 +17,14 @@ interface ProductProps {
   color: string;
 }
 
-type GrindOption = {value: "whole", label: "Whole Bean"} | {value: "drip", label: "Drip"} | {value: "espresso", label: "Espresso"};
+type GrindOption =
+  | { value: "whole"; label: "Whole Bean" }
+  | { value: "drip"; label: "Drip" }
+  | { value: "espresso"; label: "Espresso" };
 type CoffeeVariant = {
-  variant: {label: '340g', weight: 340} | {label: '680g', weight: 680} | {label: '2.3kg', weight: 2270};
+  variant: { label: "340g"; weight: 340 } | { label: "680g"; weight: 680 } | { label: "2.3kg"; weight: 2270 };
   price: number;
-}
+};
 
 interface CoffeeProps extends ProductProps {
   variants: CoffeeVariant[];
