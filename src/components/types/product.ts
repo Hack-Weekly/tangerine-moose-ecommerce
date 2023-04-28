@@ -1,6 +1,6 @@
 type ProductType = "coffee" | "tea" | "equipment";
 
-interface ProductProps {
+interface Product {
   id: number;
   name: string;
   slug: string;
@@ -26,9 +26,22 @@ type CoffeeVariant = {
   price: number;
 };
 
-interface CoffeeProps extends ProductProps {
+interface Coffee extends Product {
   variants: CoffeeVariant[];
   grindOptions: GrindOption[];
 }
 
-export type { CoffeeProps };
+type TeaVariant = {
+  variant: {
+    label: string;
+    amount: number;
+  };
+  price: number;
+};
+
+interface TeaProps extends Product {
+  format: "loose-leaf" | "tea-bags";
+  variants: TeaVariant[];
+}
+
+export type { Coffee, TeaProps };

@@ -1,8 +1,8 @@
-import type { CoffeeProps } from "~/components/types/product";
+import type { Coffee, TeaProps } from "~/components/types/product";
 
-const testProducts: CoffeeProps[] = [
+const coffeeProducts: Coffee[] = [
   {
-    id: 1,
+    id: 1001,
     name: "Tangerine House Blend",
     slug: "tangerine-house-blend",
     description: "Medium roast, balanced, slightly acidic, sweet. Notes: citrus, berry, chocolate.",
@@ -46,7 +46,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 2,
+    id: 1002,
     name: "Hanoi Robusta Blend",
     slug: "hanoi-robusta-blend",
     description:
@@ -91,7 +91,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 3,
+    id: 1003,
     name: "Gazebo Light Roast",
     slug: "gazebo-light-roast",
     description: "Mellow, acidic, fruity. Notes: honey, citrus, rose",
@@ -135,7 +135,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 4,
+    id: 1004,
     name: "Portico Medium Roast",
     slug: "portico-medium-roast",
     description: "Balanced, rounded acidity, sweet. Notes: caramel, almond, berry",
@@ -179,7 +179,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 5,
+    id: 1005,
     name: "Turret Dark Roast",
     slug: "turret-dark-roast",
     description: "Full body, low acid, roasty. Notes: dark chocolate, nutmeg, hazelnut",
@@ -223,7 +223,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 6,
+    id: 1006,
     name: "Gallery French Roast",
     slug: "gallery-french-roast ",
     description: "Double roasted, dark, intense. Notes: smoky, dark chocolate, caramel",
@@ -267,7 +267,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 7,
+    id: 1007,
     name: "Costa Rica",
     slug: "costa-rica ",
     description: "Single origin medium roast. Notes: apricot, citrus, berry",
@@ -311,7 +311,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 8,
+    id: 1008,
     name: "Guatemala",
     slug: "guatemala",
     description: "Single origin light roast, washed. Notes: citrus, almond, chamomile",
@@ -355,7 +355,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 9,
+    id: 1009,
     name: "Indonesia",
     slug: "indonesia",
     description: "Single origin from Sumatra, dark roast, washed. Notes: dark chocolate, tobacco, caramel",
@@ -399,7 +399,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 10,
+    id: 1010,
     name: "Hawaii Kona",
     slug: "hawaii-kona",
     description:
@@ -444,7 +444,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 11,
+    id: 1011,
     name: "Ethiopia",
     slug: "ethiopia",
     description: "Single origin light roast, washed. Notes: berry, almond, lemon",
@@ -488,7 +488,7 @@ const testProducts: CoffeeProps[] = [
     ],
   },
   {
-    id: 12,
+    id: 1012,
     name: "Brazil",
     slug: "brazil",
     description: "Single origin medium roast, honey processed. Notes: dark chocolate, orange, almond",
@@ -533,4 +533,87 @@ const testProducts: CoffeeProps[] = [
   },
 ];
 
-export { testProducts };
+const teaProducts: TeaProps[] = [
+  {
+    id: 2001,
+    name: "Earl Grey Loose Tea",
+    slug: "early-grey-loose-tea",
+    description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "loose leaf"],
+    base_price: 900,
+    available: true,
+    price_varies: true,
+    image_url: "/bean_bag.png",
+    color: "#fe8a26",
+    format: "loose-leaf",
+    variants: [
+      {
+        variant: {
+          label: "50g",
+          amount: 50,
+        },
+        price: 900,
+      },
+      {
+        variant: {
+          label: "100g",
+          amount: 100,
+        },
+        price: 1800,
+      },
+      {
+        variant: {
+          label: "250g",
+          amount: 250,
+        },
+        price: 4200,
+      },
+    ],
+  },
+  {
+    id: 2001,
+    name: "Earl Grey Tea Bags",
+    slug: "early-grey-tea-bags",
+    description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "tea bags"],
+    base_price: 900,
+    available: true,
+    price_varies: true,
+    image_url: "/bean_bag.png",
+    color: "#fe8a26",
+    format: "tea-bags",
+    variants: [
+      {
+        variant: {
+          label: "20 Tea Bags",
+          amount: 20,
+        },
+        price: 800,
+      },
+      {
+        variant: {
+          label: "50 Tea Bags",
+          amount: 50,
+        },
+        price: 1600,
+      },
+      {
+        variant: {
+          label: "100 Tea Bags",
+          amount: 100,
+        },
+        price: 2900,
+      },
+    ],
+  },
+];
+
+export { coffeeProducts, teaProducts };
