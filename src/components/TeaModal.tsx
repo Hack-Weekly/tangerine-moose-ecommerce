@@ -5,9 +5,9 @@ import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 import { ActionButton, IconOutlineButton } from "./Button";
 import Dropdown from "./Dropdown";
 import ProductModal from "./ProductModal";
-import type { TeaProps } from "./types/product";
+import type { Tea } from "./types/product";
 
-const TeaModal = ({ product, isOpen, onClose }: { product: TeaProps; isOpen: boolean; onClose: () => void }) => {
+const TeaModal = ({ product, isOpen, onClose }: { product: Tea; isOpen: boolean; onClose: () => void }) => {
   const [price, setPrice] = useState(product.base_price);
   const [amount, setAmount] = useState(product.variants[0]?.variant.label || "");
   const selectVariant = (label: string, price: number) => {
