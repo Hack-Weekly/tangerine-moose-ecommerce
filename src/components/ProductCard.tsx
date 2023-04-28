@@ -12,6 +12,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
+import { useCart } from "~/contexts/cart";
 import { ActionButton } from "./Button";
 import CoffeeModal from "./CoffeeModal";
 import EquipmentModal from "./EquipmentModal";
@@ -20,6 +21,7 @@ import type { Coffee, Equipment, Tea } from "./types/product";
 
 const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { addToCart } = useCart();
 
   return (
     <>

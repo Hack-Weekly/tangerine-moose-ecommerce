@@ -1,10 +1,12 @@
 "use client";
 
+import { ShoppingBag } from "@carbon/icons-react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
-import { AbsoluteCenter, Box, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+import { useCart } from "~/contexts/cart";
 import { ActionButton } from "./Button";
 import NavButton from "./NavButton";
 
@@ -18,6 +20,7 @@ const Links = [
 export default function NavBar() {
   const { data: sessionData } = useSession();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { totalQuantity } = useCart();
 
   return (
     <Flex as={"header"} position={"sticky"} top={0} w={"100%"} zIndex={"sticky"}>
@@ -55,11 +58,28 @@ export default function NavBar() {
               TANGERINE
             </Link>
           </AbsoluteCenter>
-          <Box display={{ base: "none", md: "flex" }}>
-            <ActionButton onClick={sessionData ? () => void signOut() : () => void signIn()}>
+          <HStack spacing={2}>
+            <ActionButton
+              display={{ base: "none", md: "flex" }}
+              onClick={sessionData ? () => void signOut() : () => void signIn()}
+            >
               {sessionData ? "Sign out" : "Sign in"}
             </ActionButton>
-          </Box>
+            <Button
+              bg="none"
+              alignItems={"center"}
+              aria-label={"Cart"}
+              onClick={() => {
+                // TODO: Open cart modal
+              }}
+            >
+              <ShoppingBag color={totalQuantity > 0 ? "red" : undefined} />
+              <Box as={"span"} marginLeft={2} display={{ base: "none", md: "block" }}>
+                Cart
+              </Box>
+              {totalQuantity > 0 && <Box as={"span"} marginLeft={2} color={"red.700"}>{`(${totalQuantity})`}</Box>}
+            </Button>
+          </HStack>
         </Flex>
         {isOpen && (
           <Stack pb={4} display={{ lg: "none" }} spacing={4}>
