@@ -51,7 +51,8 @@ interface Tea extends Product {
 }
 
 interface Equipment extends Product {
+  variant_type: "Size" | "Capacity" | "Variant";
   variants: Variant[];
 }
 
-export type { Coffee, Tea, Equipment };
+export type { Coffee, Tea, Equipment, Variant };
