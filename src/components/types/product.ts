@@ -51,7 +51,7 @@ interface Tea extends Product {
 }
 
 interface Equipment extends Product {
-  variant_type: "Size" | "Capacity" | "Variant";
+  variant_type: "Size" | "Capacity" | "Variant" | "Count";
   variants: Variant[];
 }
 
