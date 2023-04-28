@@ -1,4 +1,4 @@
-import type { Coffee, TeaProps } from "~/components/types/product";
+import type { Coffee, Equipment, Tea } from "~/components/types/product";
 
 const coffeeProducts: Coffee[] = [
   {
@@ -14,7 +14,7 @@ const coffeeProducts: Coffee[] = [
     base_price: 1900,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
+    image_url: "/coffee/bean-bag-fe8a26.svg",
     color: "#fe8a26",
     variants: [
       {
@@ -59,8 +59,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-076a04.svg",
+    color: "#076a04",
     variants: [
       {
         variant: {
@@ -103,8 +103,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-04546a.svg",
+    color: "#04546a",
     variants: [
       {
         variant: {
@@ -147,8 +147,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-381995.svg",
+    color: "#381995",
     variants: [
       {
         variant: {
@@ -191,8 +191,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-4d2364.svg",
+    color: "#4d2364",
     variants: [
       {
         variant: {
@@ -235,8 +235,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-730640.svg",
+    color: "#730640",
     variants: [
       {
         variant: {
@@ -279,8 +279,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-73060f.svg",
+    color: "#73060f",
     variants: [
       {
         variant: {
@@ -323,8 +323,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-636637.svg",
+    color: "#636637",
     variants: [
       {
         variant: {
@@ -367,8 +367,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-d86d56.svg",
+    color: "#d86d56",
     variants: [
       {
         variant: {
@@ -412,8 +412,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-51a696.svg",
+    color: "#51a696",
     variants: [
       {
         variant: {
@@ -456,8 +456,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-5369ce.svg",
+    color: "#5369ce",
     variants: [
       {
         variant: {
@@ -500,8 +500,8 @@ const coffeeProducts: Coffee[] = [
     base_price: 1700,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/coffee/bean-bag-d0d464.svg",
+    color: "#d0d464",
     variants: [
       {
         variant: {
@@ -533,7 +533,7 @@ const coffeeProducts: Coffee[] = [
   },
 ];
 
-const teaProducts: TeaProps[] = [
+const teaProducts: Tea[] = [
   {
     id: 2001,
     name: "Earl Grey Loose Tea",
@@ -547,8 +547,8 @@ const teaProducts: TeaProps[] = [
     base_price: 900,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/tea/loose-leaf-614dac.svg",
+    color: "#614dac",
     format: "loose-leaf",
     variants: [
       {
@@ -587,8 +587,8 @@ const teaProducts: TeaProps[] = [
     base_price: 900,
     available: true,
     price_varies: true,
-    image_url: "/bean_bag.png",
-    color: "#fe8a26",
+    image_url: "/tea/tea-bag-586699.svg",
+    color: "#586699",
     format: "tea-bags",
     variants: [
       {
@@ -616,4 +616,42 @@ const teaProducts: TeaProps[] = [
   },
 ];
 
-export { coffeeProducts, teaProducts };
+const equipmentProducts: Equipment[] = [
+  {
+    id: 3001,
+    name: "Hario V60",
+    slug: "hario-v60",
+    description:
+      "Cone-shape coffee dripper designed for accessibility, versatility, and most importantly, making good coffee",
+    created_at: new Date(2022, 11, 11),
+    updated_at: new Date(2022, 11, 11),
+    type: "equipment",
+    primary_tag: "brewer",
+    tags: ["brewer"],
+    base_price: 4200,
+    available: true,
+    price_varies: true,
+    image_url: "/bean_bag.png",
+    color: "#fe8a26",
+    variant_type: "Variant",
+    variants: [
+      {
+        label: "Plastic",
+        value: "plastic",
+        price: 4200,
+      },
+      {
+        label: "Ceramic",
+        value: "ceramic",
+        price: 4200,
+      },
+      {
+        label: "Glass",
+        value: "glass",
+        price: 4200,
+      },
+    ],
+  },
+];
+
+export { coffeeProducts, teaProducts, equipmentProducts };

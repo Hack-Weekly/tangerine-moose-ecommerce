@@ -14,15 +14,16 @@ import {
 
 import { ActionButton } from "./Button";
 import CoffeeModal from "./CoffeeModal";
+import EquipmentModal from "./EquipmentModal";
 import TeaModal from "./TeaModal";
-import type { Coffee, TeaProps } from "./types/product";
+import type { Coffee, Equipment, Tea } from "./types/product";
 
-const ProductCard = ({ product }: { product: Coffee | TeaProps }) => {
+const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Card maxW="md" borderRadius={0} boxShadow={"none"}>
+      <Card minW="sm" maxW="md" borderRadius={0} boxShadow={"none"}>
         <LinkBox>
           <CardBody
             bg={"gray.100"}
@@ -32,7 +33,7 @@ const ProductCard = ({ product }: { product: Coffee | TeaProps }) => {
             }}
           >
             <Image src={product.image_url} alt={product.name} />
-            <Stack>
+            <Stack bg={"secondary.500"} p={4}>
               <Flex alignItems={"center"} justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl">
                 <LinkOverlay href={`/${product.type}/${product.slug}`}>
                   <Text>{product.name}</Text>
@@ -52,6 +53,7 @@ const ProductCard = ({ product }: { product: Coffee | TeaProps }) => {
 
       {"grindOptions" in product && <CoffeeModal product={product} isOpen={isOpen} onClose={onClose} />}
       {"format" in product && <TeaModal product={product} isOpen={isOpen} onClose={onClose} />}
+      {"variant_type" in product && <EquipmentModal product={product} isOpen={isOpen} onClose={onClose} />}
     </>
   );
 };

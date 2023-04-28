@@ -17,6 +17,12 @@ interface Product {
   color: string;
 }
 
+type Variant = {
+  label: string;
+  value: string;
+  price: number;
+};
+
 type GrindOption =
   | { value: "whole"; label: "Whole Bean" }
   | { value: "drip"; label: "Drip" }
@@ -39,9 +45,13 @@ type TeaVariant = {
   price: number;
 };
 
-interface TeaProps extends Product {
+interface Tea extends Product {
   format: "loose-leaf" | "tea-bags";
   variants: TeaVariant[];
 }
 
-export type { Coffee, TeaProps };
+interface Equipment extends Product {
+  variants: Variant[];
+}
+
+export type { Coffee, Tea, Equipment };
