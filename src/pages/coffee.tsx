@@ -1,20 +1,19 @@
+import { useState } from "react";
 import type { NextPage } from "next";
-import { Center, SimpleGrid } from "@chakra-ui/react";
 
-import ProductCard from "~/components/ProductCard";
-import type { Coffee } from "~/components/types/product";
+import FilterGroup from "~/components/FilterGroup";
+import ProductList from "~/components/ProductList";
 import { coffeeProducts } from "~/utils/data";
 
 const CoffeePage: NextPage = () => {
+  const filters = ["blend", "single origin", "decaf"];
+  const [filter, setFilter] = useState<string[]>([]);
+  const filteredResult = coffeeProducts.filter(({ tags }) => filter.every((filter) => tags.includes(filter)));
+
   return (
     <>
-      <SimpleGrid alignContent={"center"} spacing={4} columns={[1, null, 2, 3]}>
-        {coffeeProducts.map((product: Coffee) => (
-          <Center key={product.id}>
-            <ProductCard product={product} />
-          </Center>
-        ))}
-      </SimpleGrid>
+      <FilterGroup filters={filters} onChange={setFilter} />
+      <ProductList productList={filteredResult} />
     </>
   );
 };
