@@ -1,6 +1,6 @@
-import type { Coffee, Equipment, Tea } from "~/types/product";
+import { type Product } from "~/types/product";
 
-const coffeeProducts: Coffee[] = [
+const coffeeProducts: Product[] = [
   {
     id: 1001,
     name: "Tangerine House Blend",
@@ -12,37 +12,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1900,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-fe8a26.svg",
     color: "#fe8a26",
+    options: [
+      {
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
+      },
+      {
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
+      },
+    ],
     variants: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 1900,
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 3600,
       },
       {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 8500,
       },
-    ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -57,37 +175,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-076a04.svg",
     color: "#076a04",
+    options: [
+      {
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
+      },
+      {
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
+      },
+    ],
     variants: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 1700,
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1700,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1700,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 3200,
       },
       {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3200,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3200,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 8000,
       },
-    ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8000,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8000,
+      },
     ],
   },
   {
@@ -101,37 +337,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-04546a.svg",
     color: "#04546a",
+    options: [
+      {
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
+      },
+      {
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
+      },
+    ],
     variants: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 1700,
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1700,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1700,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 3200,
       },
       {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3200,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3200,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
         price: 8000,
       },
-    ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8000,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8000,
+      },
     ],
   },
   {
@@ -145,37 +499,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-381995.svg",
     color: "#381995",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -189,37 +661,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-4d2364.svg",
     color: "#4d2364",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -233,37 +823,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "blend",
     tags: ["blend"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-730640.svg",
     color: "#730640",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -277,37 +985,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-73060f.svg",
     color: "#73060f",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -321,37 +1147,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-636637.svg",
     color: "#636637",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -365,37 +1309,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-d86d56.svg",
     color: "#d86d56",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -410,37 +1472,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-51a696.svg",
     color: "#51a696",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -454,37 +1634,155 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-5369ce.svg",
     color: "#5369ce",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
   {
@@ -498,42 +1796,160 @@ const coffeeProducts: Coffee[] = [
     primary_tag: "single origin",
     tags: ["single origin"],
     base_price: 1700,
-    available: true,
     price_varies: true,
     image_url: "/coffee/bean-bag-d0d464.svg",
     color: "#d0d464",
-    variants: [
+    options: [
       {
-        variant: {
-          label: "340g",
-          weight: 340,
-        },
-        price: 1700,
+        name: "Amount",
+        values: ["340g", "680g", "2.3kg"],
       },
       {
-        variant: {
-          label: "680g",
-          weight: 680,
-        },
-        price: 3200,
-      },
-      {
-        variant: {
-          label: "2.3kg",
-          weight: 2270,
-        },
-        price: 8000,
+        name: "Grind",
+        values: ["Whole Bean", "Drip", "Espresso"],
       },
     ],
-    grindOptions: [
-      { value: "whole", label: "Whole Bean" },
-      { value: "drip", label: "Drip" },
-      { value: "espresso", label: "Espresso" },
+    variants: [
+      {
+        id: 0,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "340g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "680g",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 3600,
+      },
+      {
+        id: 7,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Whole Bean",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 8,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Drip",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
+      {
+        id: 9,
+        options: [
+          {
+            name: "Amount",
+            value: "2.3kg",
+          },
+          {
+            name: "Grind",
+            value: "Espresso",
+          },
+        ],
+        available: true,
+        price: 8500,
+      },
     ],
   },
 ];
 
-const teaProducts: Tea[] = [
+const teaProducts: Product[] = [
   {
     id: 2001,
     name: "Earl Grey Loose Tea",
@@ -545,32 +1961,109 @@ const teaProducts: Tea[] = [
     primary_tag: "black tea",
     tags: ["black tea", "loose leaf"],
     base_price: 900,
-    available: true,
     price_varies: true,
     image_url: "/tea/loose-leaf-614dac.svg",
     color: "#614dac",
-    format: "loose-leaf",
+    options: [
+      {
+        name: "Amount",
+        values: ["50g", "100g", "250g"],
+      },
+      {
+        name: "Package",
+        values: ["Regular", "Gift"],
+      },
+    ],
     variants: [
       {
-        variant: {
-          label: "50g",
-          amount: 50,
-        },
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
         price: 900,
       },
       {
-        variant: {
-          label: "100g",
-          amount: 100,
-        },
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 1000,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
         price: 1800,
       },
       {
-        variant: {
-          label: "250g",
-          amount: 250,
-        },
-        price: 4200,
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 3400,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 3500,
       },
     ],
   },
@@ -584,39 +2077,55 @@ const teaProducts: Tea[] = [
     type: "tea",
     primary_tag: "black tea",
     tags: ["black tea", "tea bags"],
-    base_price: 900,
-    available: true,
+    base_price: 800,
     price_varies: true,
     image_url: "/tea/tea-bag-586699.svg",
     color: "#586699",
-    format: "tea-bags",
+    options: [
+      {
+        name: "Amount",
+        values: ["20 Tea Bags", "50 Tea Bags", "100 Tea Bags"],
+      },
+    ],
     variants: [
       {
-        variant: {
-          label: "20 Tea Bags",
-          amount: 20,
-        },
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "20 Tea Bags",
+          },
+        ],
+        available: true,
         price: 800,
       },
       {
-        variant: {
-          label: "50 Tea Bags",
-          amount: 50,
-        },
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50 Tea Bags",
+          },
+        ],
+        available: true,
         price: 1600,
       },
       {
-        variant: {
-          label: "100 Tea Bags",
-          amount: 100,
-        },
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100 Tea Bags",
+          },
+        ],
+        available: true,
         price: 2900,
       },
     ],
   },
 ];
 
-const equipmentProducts: Equipment[] = [
+const equipmentProducts: Product[] = [
   {
     id: 3001,
     name: "Hario V60",
@@ -629,25 +2138,47 @@ const equipmentProducts: Equipment[] = [
     primary_tag: "brewer",
     tags: ["brewer"],
     base_price: 4200,
-    available: true,
     price_varies: true,
     image_url: "/equipment/v60.svg",
     color: "#d40077",
-    variant_type: "Variant",
+    options: [
+      {
+        name: "Material",
+        values: ["Plastic", "Ceramic", "Glass"],
+      },
+    ],
     variants: [
       {
-        label: "Plastic",
-        value: "plastic",
+        id: 1,
+        options: [
+          {
+            name: "Material",
+            value: "Plastic",
+          },
+        ],
+        available: true,
         price: 4200,
       },
       {
-        label: "Ceramic",
-        value: "ceramic",
+        id: 2,
+        options: [
+          {
+            name: "Material",
+            value: "Ceramic",
+          },
+        ],
+        available: true,
         price: 4800,
       },
       {
-        label: "Glass",
-        value: "glass",
+        id: 3,
+        options: [
+          {
+            name: "Material",
+            value: "Glass",
+          },
+        ],
+        available: true,
         price: 4900,
       },
     ],
@@ -662,21 +2193,37 @@ const equipmentProducts: Equipment[] = [
     type: "equipment",
     primary_tag: "filters",
     tags: ["filters"],
-    base_price: 1200,
-    available: true,
+    base_price: 1400,
     price_varies: true,
     image_url: "/equipment/v60-filters.svg",
     color: "#d40077",
-    variant_type: "Count",
+    options: [
+      {
+        name: "Count",
+        values: ["Set of 50", "Set of 100"],
+      },
+    ],
     variants: [
       {
-        label: "Set of 50",
-        value: "50-count",
+        id: 1,
+        options: [
+          {
+            name: "Count",
+            value: "Set of 50",
+          },
+        ],
+        available: true,
         price: 1400,
       },
       {
-        label: "Set of 100",
-        value: "100-count",
+        id: 2,
+        options: [
+          {
+            name: "Count",
+            value: "Set of 100",
+          },
+        ],
+        available: true,
         price: 2600,
       },
     ],
@@ -693,20 +2240,36 @@ const equipmentProducts: Equipment[] = [
     primary_tag: "brewer",
     tags: ["brewer"],
     base_price: 5200,
-    available: true,
     price_varies: true,
     image_url: "/equipment/aeropress.svg",
     color: "#a50010",
-    variant_type: "Variant",
+    options: [
+      {
+        name: "Add-ons",
+        values: ["Without tote bag", "With tote bag"],
+      },
+    ],
     variants: [
       {
-        label: "Without tote bag",
-        value: "without-tote",
+        id: 1,
+        options: [
+          {
+            name: "Add-ons",
+            value: "Without tote bag",
+          },
+        ],
+        available: true,
         price: 5200,
       },
       {
-        label: "With tote bag",
-        value: "with-tote",
+        id: 2,
+        options: [
+          {
+            name: "Add-ons",
+            value: "With tote bag",
+          },
+        ],
+        available: true,
         price: 5800,
       },
     ],
@@ -723,31 +2286,53 @@ const equipmentProducts: Equipment[] = [
     primary_tag: "filters",
     tags: ["filters"],
     base_price: 4200,
-    available: true,
     price_varies: true,
     image_url: "/equipment/aeropress-filters.svg",
     color: "#a50010",
-    variant_type: "Count",
+    options: [
+      {
+        name: "Count",
+        values: ["1 Pack (350 filters)", "2 Pack (700 filters)", "4 Pack (1400 filters)"],
+      },
+    ],
     variants: [
       {
-        label: "1 Pack (350 filters)",
-        value: "1-pack",
+        id: 1,
+        options: [
+          {
+            name: "Count",
+            value: "1 Pack (350 filters)",
+          },
+        ],
+        available: true,
         price: 1200,
       },
       {
-        label: "2 Pack (700 filters)",
-        value: "2-pack",
+        id: 2,
+        options: [
+          {
+            name: "Count",
+            value: "2 Pack (700 filters)",
+          },
+        ],
+        available: true,
         price: 2000,
       },
       {
-        label: "4 Pack (1400 filters)",
-        value: "4-pack",
+        id: 3,
+        options: [
+          {
+            name: "Count",
+            value: "4 Pack (1400 filters)",
+          },
+        ],
+        available: true,
         price: 2900,
       },
     ],
   },
 ];
 
-const allProducts: (Coffee | Tea | Equipment)[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+const allProducts: Product[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
 
 export { coffeeProducts, teaProducts, equipmentProducts, allProducts };

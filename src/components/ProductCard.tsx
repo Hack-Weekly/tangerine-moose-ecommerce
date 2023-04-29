@@ -13,11 +13,14 @@ import {
 } from "@chakra-ui/react";
 
 import { useCart } from "~/contexts/cart";
-import type { Coffee, Equipment, Tea } from "~/types/product";
+import type { Product } from "~/types/product";
 import { ActionButton } from "./Button";
 import ProductModal from "./ProductModal";
 
-const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
+type ProductCardProps = {
+  product: Product;
+};
+const ProductCard = ({ product }: ProductCardProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { addToCart } = useCart();
 

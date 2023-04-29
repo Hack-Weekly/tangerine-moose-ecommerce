@@ -1,19 +1,99 @@
-import type { Coffee, Equipment, Tea } from "~/types/product";
-import CoffeeContent from "./CoffeeContent";
-import EquipmentContent from "./EquipmentContent";
-import TeaContent from "./TeaContent";
+import { useState } from "react";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
+
+import { ActionButton, IconOutlineButton } from "~/components/Button";
+import Dropdown from "~/components/Dropdown";
+import type { Option, Product, Variant } from "~/types/product";
 
 type ContentProps = {
-  product: Coffee | Tea | Equipment;
+  product: Product;
   onAdd: () => void;
 };
 
 const ProductContent = ({ product, onAdd }: ContentProps) => {
+  const [selectedVariant, setSelectedVariant] = useState<Variant | undefined>(() => {
+    return product.variants[0];
+  });
+  const [quantity, setQuantity] = useState(1);
+
+  const selectVariant = (value: string, selectedOption: Option) => {
+    setSelectedVariant((prevState) => {
+      if (prevState) {
+        const newOptions = prevState.options.map((option) => {
+          if (option.name === selectedOption.name) {
+            return {
+              ...option,
+              value,
+            };
+          }
+          return option;
+        });
+        return product.variants.find((variant) => {
+          return variant.options.every((option) => {
+            return newOptions.some((newOption) => {
+              return newOption.name === option.name && newOption.value === option.value;
+            });
+          });
+        });
+      }
+
+      return prevState;
+    });
+  };
+  const decrement = () => setQuantity((prevQuantity) => prevQuantity - 1);
+  const increment = () => setQuantity((prevQuantity) => prevQuantity + 1);
+
   return (
     <>
-      {"grindOptions" in product && <CoffeeContent product={product} onAdd={onAdd} />}
-      {"format" in product && <TeaContent product={product} onAdd={onAdd} />}
-      {"variant_type" in product && <EquipmentContent product={product} onAdd={onAdd} />}
+      {selectedVariant && (
+        <Text fontWeight={"bold"} fontSize="xl">
+          {new Intl.NumberFormat(undefined, {
+            style: "currency",
+            currency: "USD",
+          }).format((selectedVariant.price * quantity) / 100)}
+        </Text>
+      )}
+      {product.options.map((option) => (
+        <Menu matchWidth key={option.name}>
+          <Dropdown
+            label={option.name}
+            value={selectedVariant?.options.find((selectedOption) => selectedOption.name === option.name)?.value ?? ""}
+          />
+          <MenuList borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
+            {option.values.map((value) => (
+              <MenuItem key={value} onClick={() => selectVariant(value, option)}>
+                {value}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
+      ))}
+      <HStack spacing={"2"}>
+        <IconOutlineButton
+          icon={<MinusIcon />}
+          aria-label={"Decrement"}
+          onClick={decrement}
+          isDisabled={quantity === 1}
+        />
+        <Text width={"6"} textAlign={"center"}>
+          {quantity}
+        </Text>
+        <IconOutlineButton icon={<AddIcon />} aria-label={"Increment"} onClick={increment} />
+      </HStack>
+      <div>
+        <ActionButton
+          onClick={() => {
+            onAdd();
+          }}
+          square
+          leftIcon={<AddIcon />}
+          size={"md"}
+          px={8}
+        >
+          Add to Cart
+        </ActionButton>
+      </div>
     </>
   );
 };
