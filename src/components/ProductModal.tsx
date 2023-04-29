@@ -45,7 +45,13 @@ const ProductModal = ({ product, isOpen, onAdd, onClose }: ModalProps) => (
             </Text>
             <Text>{product.primary_tag.toUpperCase()}</Text>
             <Text>{product.description}</Text>
-            <ProductContent product={product} onAdd={onAdd} />
+            <ProductContent
+              product={product}
+              onAdd={() => {
+                onAdd();
+                onClose();
+              }}
+            />
           </Flex>
         </Stack>
       </ModalBody>
