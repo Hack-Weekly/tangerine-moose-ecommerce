@@ -1,6 +1,6 @@
 import { type Product } from "~/types/product";
 
-export const coffeeProducts: Product[] = [
+const coffeeProducts: Product[] = [
   {
     id: 1001,
     name: "Tangerine House Blend",
@@ -1949,7 +1949,7 @@ export const coffeeProducts: Product[] = [
   },
 ];
 
-export const teaProducts: Product[] = [
+const teaProducts: Product[] = [
   {
     id: 2001,
     name: "Earl Grey Loose Tea",
@@ -2125,7 +2125,7 @@ export const teaProducts: Product[] = [
   },
 ];
 
-export const equipmentProducts: Product[] = [
+const equipmentProducts: Product[] = [
   {
     id: 3001,
     name: "Hario V60",
@@ -2193,21 +2193,37 @@ export const equipmentProducts: Product[] = [
     type: "equipment",
     primary_tag: "filters",
     tags: ["filters"],
-    base_price: 1200,
-    available: true,
+    base_price: 1400,
     price_varies: true,
     image_url: "/equipment/v60-filters.svg",
     color: "#d40077",
-    variant_type: "Count",
+    options: [
+      {
+        name: "Count",
+        values: ["Set of 50", "Set of 100"],
+      },
+    ],
     variants: [
       {
-        label: "Set of 50",
-        value: "50-count",
+        id: 1,
+        options: [
+          {
+            name: "Count",
+            value: "Set of 50",
+          },
+        ],
+        available: true,
         price: 1400,
       },
       {
-        label: "Set of 100",
-        value: "100-count",
+        id: 2,
+        options: [
+          {
+            name: "Count",
+            value: "Set of 100",
+          },
+        ],
+        available: true,
         price: 2600,
       },
     ],
@@ -2224,20 +2240,36 @@ export const equipmentProducts: Product[] = [
     primary_tag: "brewer",
     tags: ["brewer"],
     base_price: 5200,
-    available: true,
     price_varies: true,
     image_url: "/equipment/aeropress.svg",
     color: "#a50010",
-    variant_type: "Variant",
+    options: [
+      {
+        name: "Add-ons",
+        values: ["Without tote bag", "With tote bag"],
+      },
+    ],
     variants: [
       {
-        label: "Without tote bag",
-        value: "without-tote",
+        id: 1,
+        options: [
+          {
+            name: "Add-ons",
+            value: "Without tote bag",
+          },
+        ],
+        available: true,
         price: 5200,
       },
       {
-        label: "With tote bag",
-        value: "with-tote",
+        id: 2,
+        options: [
+          {
+            name: "Add-ons",
+            value: "With tote bag",
+          },
+        ],
+        available: true,
         price: 5800,
       },
     ],
@@ -2254,25 +2286,47 @@ export const equipmentProducts: Product[] = [
     primary_tag: "filters",
     tags: ["filters"],
     base_price: 4200,
-    available: true,
     price_varies: true,
     image_url: "/equipment/aeropress-filters.svg",
     color: "#a50010",
-    variant_type: "Count",
+    options: [
+      {
+        name: "Count",
+        values: ["1 Pack (350 filters)", "2 Pack (700 filters)", "4 Pack (1400 filters)"],
+      },
+    ],
     variants: [
       {
-        label: "1 Pack (350 filters)",
-        value: "1-pack",
+        id: 1,
+        options: [
+          {
+            name: "Count",
+            value: "1 Pack (350 filters)",
+          },
+        ],
+        available: true,
         price: 1200,
       },
       {
-        label: "2 Pack (700 filters)",
-        value: "2-pack",
+        id: 2,
+        options: [
+          {
+            name: "Count",
+            value: "2 Pack (700 filters)",
+          },
+        ],
+        available: true,
         price: 2000,
       },
       {
-        label: "4 Pack (1400 filters)",
-        value: "4-pack",
+        id: 3,
+        options: [
+          {
+            name: "Count",
+            value: "4 Pack (1400 filters)",
+          },
+        ],
+        available: true,
         price: 2900,
       },
     ],
