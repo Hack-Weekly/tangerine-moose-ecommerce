@@ -57,8 +57,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const addToCart = (product: Product) => {
     setCartItems((currItems) => {
-      if (currItems.find((item) => item.product.id === product.id) == null) {
-        return [...currItems, { product, quantity: 1 }];
+      if (currItems.find((item) => item.id === product.id) == null) {
+        return [...currItems, { id: product.id, product, quantity: 1 }];
       } else {
         return currItems.map((item) => {
           if (item.product.id === product.id) {
