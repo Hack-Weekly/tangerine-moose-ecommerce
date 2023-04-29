@@ -13,13 +13,14 @@ import {
 } from "@chakra-ui/react";
 
 import { useCart } from "~/contexts/cart";
-import type { Coffee, Equipment, Tea } from "~/types/product";
+import type { Product } from "~/types/product";
 import { ActionButton } from "./Button";
-import CoffeeModal from "./CoffeeModal";
-import EquipmentModal from "./EquipmentModal";
-import TeaModal from "./TeaModal";
+import ProductModal from "./ProductModal";
 
-const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
+type ProductCardProps = {
+  product: Product;
+};
+const ProductCard = ({ product }: ProductCardProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { addToCart } = useCart();
 
@@ -53,15 +54,7 @@ const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
         </CardFooter>
       </Card>
 
-      {"grindOptions" in product && (
-        <CoffeeModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
-      {"format" in product && (
-        <TeaModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
-      {"variant_type" in product && (
-        <EquipmentModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
+      <ProductModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
