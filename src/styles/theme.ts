@@ -5,7 +5,8 @@ const space_grotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const theme = extendTheme({
   fonts: {
-    space_grotesk: space_grotesk.style.fontFamily,
+    heading: space_grotesk.style.fontFamily,
+    body: space_grotesk.style.fontFamily,
   },
   textStyles: {
     navButton: {
