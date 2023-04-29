@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 
 import FilterGroup from "~/components/FilterGroup";
 import ProductList from "~/components/ProductList";
-import { equipmentProducts } from "~/utils/data";
+import { equipmentProducts } from "~/data/data";
 
 const EquipmentPage: NextPage = () => {
   const filters = ["brewer", "filters"];

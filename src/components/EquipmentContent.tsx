@@ -2,14 +2,19 @@ import { useState } from "react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 
+import type { Equipment, Variant } from "~/types/product";
 import { ActionButton, IconOutlineButton } from "./Button";
 import Dropdown from "./Dropdown";
-import type { Equipment, Variant } from "./types/product";
 
-const EquipmentContent = ({ product }: { product: Equipment }) => {
+type EquipmentContentProps = {
+  product: Equipment;
+  onAdd: () => void;
+};
+
+const EquipmentContent = ({ product, onAdd }: EquipmentContentProps) => {
   const [price, setPrice] = useState(product.base_price);
   const [variant, setVariant] = useState(product.variants[0]?.label || "");
-  const [value, setValue] = useState(product.slug);
+  const [value, setValue] = useState(product.variants[0]?.value || "");
   const selectVariant = ({ label, value, price }: Variant) => {
     setPrice(price);
     setVariant(label);
@@ -46,7 +51,16 @@ const EquipmentContent = ({ product }: { product: Equipment }) => {
         <IconOutlineButton icon={<AddIcon />} aria-label={"Increment"} onClick={increment} />
       </HStack>
       <div>
-        <ActionButton onClick={() => console.log("value: ", value)} square leftIcon={<AddIcon />} size={"md"} px={8}>
+        <ActionButton
+          onClick={() => {
+            console.log("variant: ", value);
+            onAdd();
+          }}
+          square
+          leftIcon={<AddIcon />}
+          size={"md"}
+          px={8}
+        >
           Add to Cart
         </ActionButton>
       </div>

@@ -2,11 +2,16 @@ import { useState } from "react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 
+import type { Coffee } from "~/types/product";
 import { ActionButton, IconOutlineButton } from "./Button";
 import Dropdown from "./Dropdown";
-import type { Coffee } from "./types/product";
 
-const CoffeeContent = ({ product }: { product: Coffee }) => {
+type CoffeeContentProps = {
+  product: Coffee;
+  onAdd: () => void;
+};
+
+const CoffeeContent = ({ product, onAdd }: CoffeeContentProps) => {
   const [price, setPrice] = useState(product.base_price);
   const [size, setSize] = useState(product.variants[0]?.variant.label || "");
   const [grind, setGrind] = useState(product.grindOptions[0]?.label || "");
@@ -55,7 +60,7 @@ const CoffeeContent = ({ product }: { product: Coffee }) => {
         <IconOutlineButton icon={<AddIcon />} aria-label={"Increment"} onClick={increment} />
       </HStack>
       <div>
-        <ActionButton onClick={() => console.log("added to cart")} square leftIcon={<AddIcon />} size={"md"} px={8}>
+        <ActionButton onClick={() => onAdd()} square leftIcon={<AddIcon />} size={"md"} px={8}>
           Add to Cart
         </ActionButton>
       </div>

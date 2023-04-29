@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 
 import FilterGroup from "~/components/FilterGroup";
 import ProductList from "~/components/ProductList";
-import { teaProducts } from "~/utils/data";
+import { teaProducts } from "~/data/data";
 
 const Tea: NextPage = () => {
   const filters = ["loose leaf", "tea bags"];

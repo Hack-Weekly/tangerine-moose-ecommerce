@@ -11,16 +11,17 @@ import {
   Text,
 } from "@chakra-ui/react";
 
+import type { Coffee, Equipment, Tea } from "~/types/product";
 import ProductContent from "./ProductContent";
-import type { Coffee, Equipment, Tea } from "./types/product";
 
 type ModalProps = {
   product: Coffee | Tea | Equipment;
   isOpen: boolean;
+  onAdd: () => void;
   onClose: () => void;
 };
 
-const ProductModal = ({ product, isOpen, onClose }: ModalProps) => (
+const ProductModal = ({ product, isOpen, onAdd, onClose }: ModalProps) => (
   <Modal isOpen={isOpen} onClose={onClose} isCentered size={["full", "lg", "xl"]} blockScrollOnMount={false}>
     <ModalOverlay backdropFilter={"blur(2px)"} />
     <ModalContent p={"1rem"} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
@@ -44,7 +45,7 @@ const ProductModal = ({ product, isOpen, onClose }: ModalProps) => (
             </Text>
             <Text>{product.primary_tag.toUpperCase()}</Text>
             <Text>{product.description}</Text>
-            <ProductContent product={product} />
+            <ProductContent product={product} onAdd={onAdd} />
           </Flex>
         </Stack>
       </ModalBody>

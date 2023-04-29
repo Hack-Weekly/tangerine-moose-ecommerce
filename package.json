@@ -15,6 +15,7 @@
     "*.{js,jsx,cjs,mjs,ts,tsx,css,md,json}": "prettier --write"
   },
   "dependencies": {
+    "@carbon/icons-react": "^11.18.0",
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/next-js": "^2.1.3",
     "@chakra-ui/react": "^2.6.0",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
+    "@types/carbon__icons-react": "^11.16.0",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.16.1",
     "@types/prettier": "^2.7.2",
