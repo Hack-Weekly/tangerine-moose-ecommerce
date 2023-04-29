@@ -3,12 +3,13 @@ import { Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
 
 import Empty from "~/components/Empty";
 import ProductContent from "~/components/ProductContent";
-import { allProducts } from "~/utils/data";
+import { useCart } from "~/contexts/cart";
+import { allProducts } from "~/data/data";
 
 const ProductPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const product = allProducts.find((result) => result.slug === slug);
+  const { query } = useRouter();
+  const { addToCart } = useCart();
+  const product = allProducts.find((result) => result.slug === query.slug);
 
   return (
     <Container fontFamily={"space_grotesk"} maxW="4xl" mt={[null, "16"]}>
@@ -21,7 +22,7 @@ const ProductPage = () => {
             </Text>
             <Text>{product.primary_tag.toUpperCase()}</Text>
             <Text>{product.description}</Text>
-            <ProductContent product={product} />
+            <ProductContent product={product} onAdd={() => addToCart(product)} />
           </Flex>
         </Stack>
       ) : (
