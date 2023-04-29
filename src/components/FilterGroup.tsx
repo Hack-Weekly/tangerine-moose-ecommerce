@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { type a } from "@chakra-ui/checkbox/dist/checkbox-types-a3d7c663";
-import { Box, HStack, Text, chakra, useCheckbox, useCheckboxGroup } from "@chakra-ui/react";
+import { Box, HStack, Text, chakra, useCheckbox, useCheckboxGroup, type UseCheckboxProps } from "@chakra-ui/react";
 
 const FilterGroup = ({ filters, onChange }: { filters: string[]; onChange: (value: string[]) => void }) => {
-  function CustomCheckbox(props: a | undefined) {
+  function CustomCheckbox(props: UseCheckboxProps | undefined) {
     const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } = useCheckbox(props);
 
     return (
