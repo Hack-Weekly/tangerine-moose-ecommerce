@@ -12,7 +12,7 @@ const ProductPage = () => {
   const product = allProducts.find((result) => result.slug === query.slug);
 
   return (
-    <Container fontFamily={"space_grotesk"} maxW="4xl" mt={[null, "16"]}>
+    <Container maxW="4xl" mt={[null, "16"]}>
       {product ? (
         <Stack direction={["column", "row"]} gap={"16"}>
           <Image src={product.image_url} alt={product.name} boxSize={"50%"} alignSelf={"center"} />
