@@ -15,9 +15,7 @@ import {
 import { useCart } from "~/contexts/cart";
 import type { Coffee, Equipment, Tea } from "~/types/product";
 import { ActionButton } from "./Button";
-import CoffeeModal from "./CoffeeModal";
-import EquipmentModal from "./EquipmentModal";
-import TeaModal from "./TeaModal";
+import ProductModal from "./ProductModal";
 
 const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,7 +35,7 @@ const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
             <Image src={product.image_url} alt={product.name} />
             <Stack bg={"secondary.500"} p={4}>
               <Flex alignItems={"center"} justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl">
-                <LinkOverlay href={`/${product.type}/${product.slug}`}>
+                <LinkOverlay href={`/product/${product.slug}`}>
                   <Text>{product.name}</Text>
                 </LinkOverlay>
                 <Text>{`$${product.base_price / 100}`}</Text>
@@ -52,16 +50,7 @@ const ProductCard = ({ product }: { product: Coffee | Tea | Equipment }) => {
           </ActionButton>
         </CardFooter>
       </Card>
-
-      {"grindOptions" in product && (
-        <CoffeeModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
-      {"format" in product && (
-        <TeaModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
-      {"variant_type" in product && (
-        <EquipmentModal onAdd={() => addToCart(product)} product={product} isOpen={isOpen} onClose={onClose} />
-      )}
+      <ProductModal product={product} onAdd={() => addToCart(product)} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

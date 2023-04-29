@@ -5,18 +5,16 @@ import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 import type { Equipment, Variant } from "~/types/product";
 import { ActionButton, IconOutlineButton } from "./Button";
 import Dropdown from "./Dropdown";
-import ProductModal from "./ProductModal";
 
-type EquipmentModalProps = {
+type EquipmentContentProps = {
   product: Equipment;
-  isOpen: boolean;
   onAdd: () => void;
-  onClose: () => void;
 };
-const EquipmentModal = ({ product, isOpen, onAdd, onClose }: EquipmentModalProps) => {
+
+const EquipmentContent = ({ product, onAdd }: EquipmentContentProps) => {
   const [price, setPrice] = useState(product.base_price);
   const [variant, setVariant] = useState(product.variants[0]?.label || "");
-  const [value, setValue] = useState(product.slug);
+  const [value, setValue] = useState(product.variants[0]?.value || "");
   const selectVariant = ({ label, value, price }: Variant) => {
     setPrice(price);
     setVariant(label);
@@ -28,14 +26,7 @@ const EquipmentModal = ({ product, isOpen, onAdd, onClose }: EquipmentModalProps
   const increment = () => setQuantity((prevQuantity) => prevQuantity + 1);
 
   return (
-    <ProductModal
-      isOpen={isOpen}
-      onClose={onClose}
-      name={product.name}
-      imageUrl={product.image_url}
-      primaryTag={product.primary_tag}
-      description={product.description}
-    >
+    <>
       <Text fontWeight={"bold"} fontSize="xl">{`$${(quantity * price) / 100}`}</Text>
       <Menu matchWidth>
         <Dropdown label={product.variant_type} value={variant} />
@@ -62,8 +53,8 @@ const EquipmentModal = ({ product, isOpen, onAdd, onClose }: EquipmentModalProps
       <div>
         <ActionButton
           onClick={() => {
+            console.log("variant: ", value);
             onAdd();
-            onClose();
           }}
           square
           leftIcon={<AddIcon />}
@@ -73,8 +64,8 @@ const EquipmentModal = ({ product, isOpen, onAdd, onClose }: EquipmentModalProps
           Add to Cart
         </ActionButton>
       </div>
-    </ProductModal>
+    </>
   );
 };
 
-export default EquipmentModal;
+export default EquipmentContent;

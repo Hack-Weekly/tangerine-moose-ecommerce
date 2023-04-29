@@ -225,7 +225,7 @@ const coffeeProducts: Coffee[] = [
   {
     id: 1006,
     name: "Gallery French Roast",
-    slug: "gallery-french-roast ",
+    slug: "gallery-french-roast",
     description: "Double roasted, dark, intense. Notes: smoky, dark chocolate, caramel",
     created_at: new Date(2022, 11, 11),
     updated_at: new Date(2022, 11, 11),
@@ -269,7 +269,7 @@ const coffeeProducts: Coffee[] = [
   {
     id: 1007,
     name: "Costa Rica",
-    slug: "costa-rica ",
+    slug: "costa-rica",
     description: "Single origin medium roast. Notes: apricot, citrus, berry",
     created_at: new Date(2022, 11, 11),
     updated_at: new Date(2022, 11, 11),
@@ -575,7 +575,7 @@ const teaProducts: Tea[] = [
     ],
   },
   {
-    id: 2001,
+    id: 2002,
     name: "Earl Grey Tea Bags",
     slug: "early-grey-tea-bags",
     description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
@@ -748,4 +748,6 @@ const equipmentProducts: Equipment[] = [
   },
 ];
 
-export { coffeeProducts, teaProducts, equipmentProducts };
+const allProducts: (Coffee | Tea | Equipment)[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+
+export { coffeeProducts, teaProducts, equipmentProducts, allProducts };
