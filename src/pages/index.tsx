@@ -1,11 +1,13 @@
 import { type NextPage } from "next";
 
-import { ProductList } from "~/components/ProductList";
+import ProductList from "~/components/ProductList";
 import { coffeeProducts, equipmentProducts, teaProducts } from "~/data/data";
+import type { Coffee, Equipment, Tea } from "~/types/product";
 
-const products = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+const products: (Coffee | Tea | Equipment)[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+
 const Home: NextPage = () => {
-  return <ProductList products={products} />;
+  return <ProductList productList={products} />;
 };
 
 export default Home;
