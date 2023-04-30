@@ -14,7 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { ActionButton, OutlineButton } from "~/components/Button";
+import { ActionButton } from "~/components/Button";
 import { useCart } from "~/contexts/cart";
 
 // TODO: add quantity selector, and price calculation
@@ -61,9 +61,9 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
         </DrawerBody>
 
         <DrawerFooter>
-          <OutlineButton size={"lg"} w={"full"} as={Link} href={"/checkout"} onClick={() => undefined}>
+          <ActionButton size={"lg"} w={"full"} as={Link} href={"/checkout"} onClick={() => undefined}>
             Check out
-          </OutlineButton>
+          </ActionButton>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
