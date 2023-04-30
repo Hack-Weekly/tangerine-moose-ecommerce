@@ -17,11 +17,10 @@ import type { Product } from "~/types/product";
 type ProductModalProps = {
   product: Product;
   isOpen: boolean;
-  onAdd: () => void;
   onClose: () => void;
 };
 
-const ProductModal = ({ product, isOpen, onAdd, onClose }: ProductModalProps) => {
+const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size={["full", "lg", "xl"]} blockScrollOnMount={false}>
       <ModalOverlay backdropFilter={"blur(2px)"} />
@@ -49,7 +48,6 @@ const ProductModal = ({ product, isOpen, onAdd, onClose }: ProductModalProps) =>
               <ProductContent
                 product={product}
                 onAdd={() => {
-                  onAdd();
                   onClose();
                 }}
               />

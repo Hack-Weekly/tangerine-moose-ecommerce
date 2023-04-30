@@ -4,6 +4,7 @@ import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 
 import { ActionButton, IconOutlineButton } from "~/components/Button";
 import Dropdown from "~/components/Dropdown";
+import { useCart } from "~/contexts/cart";
 import type { Option, Product, Variant } from "~/types/product";
 
 type ContentProps = {
@@ -16,6 +17,7 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
     return product.variants[0];
   });
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const selectVariant = (value: string, selectedOption: Option) => {
     setSelectedVariant((prevState) => {
@@ -84,6 +86,8 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
       <div>
         <ActionButton
           onClick={() => {
+            if (!selectedVariant) return;
+            addToCart(product, selectedVariant, quantity);
             onAdd();
           }}
           square

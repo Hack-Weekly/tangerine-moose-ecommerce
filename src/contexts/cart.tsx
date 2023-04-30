@@ -2,15 +2,16 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 
 import useLocalStorage from "~/hooks/useLocalStorage";
 import { type CartItem } from "~/types/cart";
-import { type Product } from "~/types/product";
+import { type Product, type Variant } from "~/types/product";
 
 type CartContextProps = {
   cartItems: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (id: Product["id"]) => void;
-  increaseQuantity: (id: Product["id"]) => void;
-  decreaseQuantity: (id: Product["id"]) => void;
+  addToCart: (product: Product, variant: Variant, quantity: number) => void;
+  removeFromCart: (id: Product["id"], variantId: Variant["id"]) => void;
+  increaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
+  decreaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
   totalQuantity: number;
+  totalPrice: number;
 };
 
 export const CartContext = createContext<CartContextProps>({
@@ -20,6 +21,7 @@ export const CartContext = createContext<CartContextProps>({
   increaseQuantity: () => undefined,
   decreaseQuantity: () => undefined,
   totalQuantity: 0,
+  totalPrice: 0,
 });
 
 type CartProviderProps = {
@@ -38,10 +40,15 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return cartItems.reduce((acc, item) => acc + item.quantity, 0);
   }, [cartItems, isMounted]);
 
-  const increaseQuantity = (id: Product["id"]) => {
+  const totalPrice = useMemo(() => {
+    if (!isMounted) return 0;
+    return cartItems.reduce((acc, item) => acc + item.quantity * item.variant.price, 0);
+  }, [cartItems, isMounted]);
+
+  const increaseQuantity = (id: Product["id"], variantId: Variant["id"]) => {
     setCartItems((currItems) => {
       return currItems.map((item) => {
-        if (item.id === id) {
+        if (item.id === id && item.variant.id === variantId) {
           return { ...item, quantity: item.quantity + 1 };
         } else {
           return item;
@@ -50,10 +57,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
-  const decreaseQuantity = (id: Product["id"]) => {
+  const decreaseQuantity = (id: Product["id"], variantId: Variant["id"]) => {
     setCartItems((currItems) => {
       return currItems.map((item) => {
-        if (item.id === id) {
+        if (item.id === id && item.variant.id === variantId) {
           return { ...item, quantity: item.quantity - 1 };
         } else {
           return item;
@@ -62,14 +69,25 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, variant: Variant, quantity = 1) => {
     setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === product.id) == null) {
-        return [...currItems, { id: product.id, product, quantity: 1 }];
+      const existingItem = currItems.find((item) => item.id === product.id && item.variant.id === variant.id);
+      if (!existingItem) {
+        return [
+          ...currItems,
+          {
+            id: product.id,
+            name: product.name,
+            image_url: product.image_url,
+            variant: variant,
+            price: variant.price,
+            quantity: quantity,
+          },
+        ];
       } else {
         return currItems.map((item) => {
-          if (item.id === product.id) {
-            return { ...item, quantity: item.quantity + 1 };
+          if (item.id === product.id && item.variant.id === variant.id) {
+            return { ...item, quantity: item.quantity + quantity };
           } else {
             return item;
           }
@@ -78,10 +96,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
-  const removeFromCart = (id: Product["id"]) => {
-    setCartItems((currItems) => {
-      return currItems.filter((item) => item.id !== id);
-    });
+  const removeFromCart = (id: Product["id"], variantId: Variant["id"]) => {
+    setCartItems((currItems) => currItems.filter((item) => item.id !== id || item.variant.id !== variantId));
   };
 
   return (
@@ -93,6 +109,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         increaseQuantity,
         decreaseQuantity,
         totalQuantity,
+        totalPrice,
       }}
     >
       {children}
