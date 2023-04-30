@@ -9,7 +9,7 @@ import type { Option, Product, Variant } from "~/types/product";
 
 type ContentProps = {
   product: Product;
-  onAdd: () => void;
+  onAdd?: () => void;
 };
 
 const ProductContent = ({ product, onAdd }: ContentProps) => {
@@ -88,7 +88,7 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
           onClick={() => {
             if (!selectedVariant) return;
             addToCart(product, selectedVariant, quantity);
-            onAdd();
+            onAdd?.();
           }}
           square
           leftIcon={<AddIcon />}
