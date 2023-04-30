@@ -37,7 +37,7 @@ const ProductModal = ({ product, isOpen, onAdd, onClose }: ProductModalProps) =>
             border: "1px solid black",
           }}
         />
-        <ModalBody fontFamily={"space_grotesk"}>
+      <ModalBody>
           <Stack direction={["column", "row"]}>
             <Image src={product.image_url} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
             <Flex flexDir={"column"} gap={4}>

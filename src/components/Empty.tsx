@@ -3,7 +3,7 @@ import { Image, Stack, Text } from "@chakra-ui/react";
 const Empty = () => (
   <Stack>
     <Image boxSize={"lg"} src="/nothingtoseehere.svg" alt="empty page" />
-    <Text fontFamily={"space_grotesk"} fontSize={"4xl"} fontWeight={"bold"} textAlign={"center"}>
+    <Text fontSize={"4xl"} fontWeight={"bold"} textAlign={"center"}>
       sorry, we’re all out.
     </Text>
   </Stack>
