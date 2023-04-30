@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 import { useCart } from "~/contexts/cart";
 import { ActionButton, OutlineButton } from "./Button";
+import CheckoutModal from "./CheckoutModal";
 import NavButton from "./NavButton";
 
 const Links = [
@@ -18,6 +19,7 @@ const Links = [
 export default function NavBar() {
   const { data: sessionData } = useSession();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isCartOpen, onOpen: onCartOpen, onClose: onCartClose } = useDisclosure();
   const { totalQuantity } = useCart();
 
   return (
@@ -67,7 +69,7 @@ export default function NavBar() {
               aria-label={"Cart"}
               minW={"auto"}
               onClick={() => {
-                // TODO: Open cart modal
+                onCartOpen();
               }}
             >
               <ShoppingBag color={totalQuantity > 0 ? "red" : undefined} />
@@ -78,6 +80,7 @@ export default function NavBar() {
             </OutlineButton>
           </HStack>
         </Flex>
+        <CheckoutModal isOpen={isCartOpen} onClose={onCartClose} />
         {isOpen && (
           <Stack pb={4} display={{ lg: "none" }} spacing={4}>
             <Stack as={"nav"} spacing={4}>
