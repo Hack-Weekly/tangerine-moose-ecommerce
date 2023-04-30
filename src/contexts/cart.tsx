@@ -1,5 +1,6 @@
-import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 
+import useLocalStorage from "~/hooks/useLocalStorage";
 import { type CartItem } from "~/types/cart";
 import { type Product } from "~/types/product";
 
@@ -25,16 +26,22 @@ type CartProviderProps = {
   children: ReactNode;
 };
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("tangerine-moose-cart", []);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const totalQuantity = useMemo(() => {
+    if (!isMounted) return 0;
     return cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  }, [cartItems]);
+  }, [cartItems, isMounted]);
 
   const increaseQuantity = (id: Product["id"]) => {
     setCartItems((currItems) => {
       return currItems.map((item) => {
-        if (item.product.id === id) {
+        if (item.id === id) {
           return { ...item, quantity: item.quantity + 1 };
         } else {
           return item;
@@ -46,7 +53,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const decreaseQuantity = (id: Product["id"]) => {
     setCartItems((currItems) => {
       return currItems.map((item) => {
-        if (item.product.id === id) {
+        if (item.id === id) {
           return { ...item, quantity: item.quantity - 1 };
         } else {
           return item;
@@ -61,7 +68,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         return [...currItems, { id: product.id, product, quantity: 1 }];
       } else {
         return currItems.map((item) => {
-          if (item.product.id === product.id) {
+          if (item.id === product.id) {
             return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
@@ -73,7 +80,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const removeFromCart = (id: Product["id"]) => {
     setCartItems((currItems) => {
-      return currItems.filter((item) => item.product.id !== id);
+      return currItems.filter((item) => item.id !== id);
     });
   };
 
