@@ -27,21 +27,31 @@ const CartItemComp: FC<{ item: CartItem }> = ({ item }) => {
   const cart = useCart();
   return (
     <div>
-      {item.product.name} - {item.quantity}
-      <ActionButton
-        onClick={() => {
-          cart.decreaseQuantity(item.product.id);
-        }}
-      >
-        -
-      </ActionButton>
-      <ActionButton
-        onClick={() => {
-          cart.increaseQuantity(item.product.id);
-        }}
-      >
-        +
-      </ActionButton>
+      <Flex justifyContent={"space-between"} alignItems={"center"}>
+        {item.product.name} - {item.quantity}
+        <Flex justifyContent={"space-between"} alignItems={"center"}>
+          <ActionButton
+            marginRight={"1rem"}
+            minW={"unset"}
+            width={"40px"}
+            onClick={() => {
+              cart.decreaseQuantity(item.product.id);
+            }}
+          >
+            -
+          </ActionButton>
+          <ActionButton
+            marginRight={"1rem"}
+            minW={"unset"}
+            width={"40px"}
+            onClick={() => {
+              cart.increaseQuantity(item.product.id);
+            }}
+          >
+            +
+          </ActionButton>
+        </Flex>
+      </Flex>
     </div>
   );
 };
@@ -55,7 +65,9 @@ const CheckoutFooter: FC = () => {
   };
   return (
     <div>
-      <ActionButton onClick={purchase}>Purchase</ActionButton>
+      <Flex justifyContent={"right"} marginRight={"4"}>
+        <ActionButton onClick={purchase}>Purchase</ActionButton>
+      </Flex>
     </div>
   );
 };
