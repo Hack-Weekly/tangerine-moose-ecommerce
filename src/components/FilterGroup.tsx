@@ -20,9 +20,7 @@ const FilterGroup = ({ filters, onChange }: { filters: string[]; onChange: (resu
   return (
     <Box w={"100%"} px={4} m={4}>
       <HStack>
-        {filters.map((filter) => (
-          <CheckboxButton key={filter} {...getCheckboxProps({ value: filter })} />
-        ))}
+        {filters && filters.map((filter) => <CheckboxButton key={filter} {...getCheckboxProps({ value: filter })} />)}
       </HStack>
     </Box>
   );

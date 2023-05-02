@@ -8,16 +8,16 @@ export default function useFilter(products: Product[], setProducts: (sortedItems
   const [sortOption, setSortOption] = useState<string>("");
 
   useEffect(() => {
-    let sortedItems = [...products];
+    if (products) {
+      let sortedItems = [...products];
+      sortedItems = filter.length
+        ? products.filter(({ tags }) => filter.every((filterOption) => tags.includes(filterOption)))
+        : sortedItems;
 
-    sortedItems = filter.length
-      ? products.filter(({ tags }) => filter.every((filterOption) => tags.includes(filterOption)))
-      : sortedItems;
-
-    const sortFn = sortOptions.find((obj) => obj.value === sortOption)?.fn;
-    if (sortFn) sortedItems = sortedItems.sort(sortFn);
-
-    setProducts(sortedItems);
+      const sortFn = sortOptions.find((obj) => obj.value === sortOption)?.fn;
+      if (sortFn) sortedItems = sortedItems.sort(sortFn);
+      setProducts(sortedItems);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, sortOption]);
 

@@ -9,7 +9,7 @@ type ProductListProps = {
 };
 const ProductList = ({ productList }: ProductListProps) => (
   <Flex justifyContent={"center"}>
-    {productList.length ? (
+    {productList && productList.length ? (
       <Wrap justify="center">
         {productList.map((product) => (
           <WrapItem key={product.id}>

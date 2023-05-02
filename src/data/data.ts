@@ -2334,5 +2334,11 @@ const equipmentProducts: Product[] = [
 ];
 
 const allProducts: Product[] = [...coffeeProducts, ...teaProducts, ...equipmentProducts];
+const products = { coffee: coffeeProducts, tea: teaProducts, equipment: equipmentProducts };
+const filters = {
+  coffee: ["blend", "single origin", "decaf"],
+  tea: ["loose leaf", "tea bags"],
+  equipment: ["brewer", "filters"],
+};
 
-export { coffeeProducts, teaProducts, equipmentProducts, allProducts };
+export { coffeeProducts, teaProducts, equipmentProducts, products, filters, allProducts };
