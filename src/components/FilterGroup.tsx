@@ -14,7 +14,8 @@ const FilterGroup = ({ filters, onChange }: { filters: string[]; onChange: (resu
 
   useEffect(() => {
     onChange(value.filter(isString));
-  }, [value, onChange]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   return (
     <Box w={"100%"} px={4} m={4}>

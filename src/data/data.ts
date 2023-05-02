@@ -2276,7 +2276,7 @@ const equipmentProducts: Product[] = [
   },
   {
     id: 3004,
-    name: "AeroPress Paper Micro-Filters",
+    name: "AeroPress Paper Filters",
     slug: "aeropress-filters",
     description:
       "Cone-shape coffee dripper designed for accessibility, versatility, and most importantly, making good coffee",

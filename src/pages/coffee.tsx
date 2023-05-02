@@ -1,42 +1,39 @@
 import { useState } from "react";
 import type { NextPage } from "next";
-import { Box, Flex, Grid, GridItem, Stack } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 
 import FilterGroup from "~/components/FilterGroup";
 import ProductList from "~/components/ProductList";
-import { SortGroup, params, type SortParam } from "~/components/SortGroup";
+import { SortGroup } from "~/components/SortGroup";
 import { coffeeProducts } from "~/data/data";
-
-const findFn = (arr: SortParam[], key: string) => arr.find((obj: SortParam) => obj.value === key)?.fn;
+import useFilter from "~/hooks/useFilter";
+import { type Product } from "~/types/product";
 
 const CoffeePage: NextPage = () => {
   const filters = ["blend", "single origin", "decaf"];
-  const [filter, setFilter] = useState<string[]>([]);
-  const filteredResult = coffeeProducts.filter(({ tags }) => filter.every((filter) => tags.includes(filter)));
-
-  const [sort, setSort] = useState<string | number>("");
-  const isString = (element: string | number): element is string => typeof element === "string";
-  const sortFn = sort && isString(sort) && findFn(params, sort);
-  const sortedResult = sortFn && sort ? filteredResult.sort(sortFn) : filteredResult;
+  const [products, setProducts] = useState<Product[]>(coffeeProducts);
+  const [setFilter, setSortOption] = useFilter(coffeeProducts, setProducts);
 
   return (
-    <>
-      <Grid templateColumns={"repeat(18,1fr)"} gap={4}>
-        <GridItem colSpan={17}>
-          <Flex flexDir={"column"} alignContent={"flex-start"} gap={4} mt={2}>
-            <Stack direction={["column", "row"]}>
-              <FilterGroup filters={filters} onChange={setFilter} />
-            </Stack>
-            <ProductList productList={sortedResult} />
-          </Flex>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box position={"fixed"} width={"fit-content"} p={1}>
-            <SortGroup handleChange={setSort} />
-          </Box>
-        </GridItem>
-      </Grid>
-    </>
+    <Grid
+      templateAreas={`"filters filters"
+                    "products sort"`}
+      gridTemplateRows={"fit-content fit-content"}
+      gridTemplateColumns={"fit-content fit-content"}
+      gap="1"
+    >
+      <GridItem area={"filters"}>
+        <FilterGroup filters={filters} onChange={setFilter} />
+      </GridItem>
+      <GridItem area={"sort"}>
+        <Box h={"fit-content"} position={"sticky"} top={24}>
+          <SortGroup onChange={setSortOption} />
+        </Box>
+      </GridItem>
+      <GridItem area={"products"}>
+        <ProductList productList={products} />
+      </GridItem>
+    </Grid>
   );
 };
 

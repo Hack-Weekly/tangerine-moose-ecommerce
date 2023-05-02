@@ -1,4 +1,4 @@
-import { Flex, SimpleGrid } from "@chakra-ui/react";
+import { Flex, Wrap, WrapItem } from "@chakra-ui/react";
 
 import Empty from "~/components/Empty";
 import ProductCard from "~/components/ProductCard";
@@ -10,11 +10,13 @@ type ProductListProps = {
 const ProductList = ({ productList }: ProductListProps) => (
   <Flex justifyContent={"center"}>
     {productList.length ? (
-      <SimpleGrid alignContent={"center"} spacing={4} columns={[1, null, 2, 3]}>
+      <Wrap justify="center">
         {productList.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <WrapItem key={product.id}>
+            <ProductCard product={product} />
+          </WrapItem>
         ))}
-      </SimpleGrid>
+      </Wrap>
     ) : (
       <Empty />
     )}
