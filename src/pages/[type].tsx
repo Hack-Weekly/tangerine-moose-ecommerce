@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { AbsoluteCenter, Container, Spinner } from "@chakra-ui/react";
 
-import ProductList from "~/components/ProductList";
+import CategoryPage from "~/components/CategoryPage";
 import type { ProductType } from "~/types/product";
 
 const ProductTypePage = () => {
@@ -10,7 +10,7 @@ const ProductTypePage = () => {
   } = useRouter();
 
   return product ? (
-    <ProductList product={product as ProductType} />
+    <CategoryPage product={product as ProductType} />
   ) : (
     <Container minH={"calc(100vh - 98px)"}>
       <AbsoluteCenter>
