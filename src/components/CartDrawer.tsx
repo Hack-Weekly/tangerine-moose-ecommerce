@@ -1,6 +1,6 @@
 import { AddIcon, DeleteIcon, MinusIcon } from "@chakra-ui/icons";
-import { Link } from "@chakra-ui/next-js";
 import {
+  Box,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -24,6 +24,7 @@ type CartDrawerProps = {
   isOpen: boolean;
   onClose: () => void;
 };
+
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity, cartItems, totalQuantity, totalPrice } = useCart();
 
@@ -125,9 +126,13 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 }).format(totalPrice / 100)}
               </Text>
             </Text>
-            <ActionButton size={"lg"} w={"full"} as={Link} href={"/checkout"} onClick={() => undefined}>
-              Checkout
-            </ActionButton>
+            <Box w={"full"}>
+              <form action="/api/checkout_sessions" method="POST">
+                <ActionButton type={"submit"} role={"link"} size={"lg"} w={"full"} square onClick={() => undefined}>
+                  Checkout
+                </ActionButton>
+              </form>
+            </Box>
           </VStack>
         </DrawerFooter>
       </DrawerContent>
