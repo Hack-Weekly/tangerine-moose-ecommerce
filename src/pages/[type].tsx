@@ -3,16 +3,19 @@ import { Progress } from "@chakra-ui/react";
 
 import CategoryPage from "~/components/CategoryPage";
 import Empty from "~/components/Empty";
-import { ProductTypes, type ProductType } from "~/types/product";
+import { productTypes, type ProductType } from "~/types/product";
 
-const isProductType = (input: string): boolean => ProductTypes.find((validType) => validType === input) !== undefined;
+const getProductType = (input: string): ProductType | undefined => {
+  const productType = productTypes.find((validType) => validType === input);
+  if (productType) return productType;
+};
 
 const ProductTypePage = () => {
   const router = useRouter();
   const product = router.query.type as ProductType;
   if (!product) return <Progress size="xs" isIndeterminate colorScheme={"primary"} />;
 
-  return isProductType(product) ? <CategoryPage product={product} /> : <Empty />;
+  return getProductType(product) ? <CategoryPage product={product} /> : <Empty />;
 };
 
 export default ProductTypePage;
