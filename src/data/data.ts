@@ -27,7 +27,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -42,7 +42,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -190,7 +190,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -205,7 +205,7 @@ const coffeeProducts: Product[] = [
         price: 1700,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -352,7 +352,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -367,7 +367,7 @@ const coffeeProducts: Product[] = [
         price: 1700,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -514,7 +514,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -529,7 +529,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -676,7 +676,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -691,7 +691,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -838,7 +838,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -853,7 +853,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1000,7 +1000,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1015,7 +1015,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1162,7 +1162,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1177,7 +1177,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1324,7 +1324,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1339,7 +1339,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1487,7 +1487,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1502,7 +1502,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1649,7 +1649,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1664,7 +1664,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",
@@ -1811,7 +1811,7 @@ const coffeeProducts: Product[] = [
     ],
     variants: [
       {
-        id: 0,
+        id: 1,
         options: [
           {
             name: "Amount",
@@ -1826,7 +1826,7 @@ const coffeeProducts: Product[] = [
         price: 1900,
       },
       {
-        id: 1,
+        id: 2,
         options: [
           {
             name: "Amount",

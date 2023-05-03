@@ -12,7 +12,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { useCart } from "~/contexts/cart";
 import type { Product } from "~/types/product";
 import { ActionButton } from "./Button";
 import ProductModal from "./ProductModal";
@@ -22,7 +21,6 @@ type ProductCardProps = {
 };
 const ProductCard = ({ product }: ProductCardProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { addToCart } = useCart();
 
   return (
     <>
@@ -53,7 +51,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </ActionButton>
         </CardFooter>
       </Card>
-      <ProductModal product={product} onAdd={() => addToCart(product)} isOpen={isOpen} onClose={onClose} />
+      <ProductModal product={product} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
