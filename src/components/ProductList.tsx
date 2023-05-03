@@ -10,7 +10,7 @@ type ProductListProps = {
 const ProductList = ({ productList }: ProductListProps) => (
   <Flex justifyContent={"center"}>
     {productList.length ? (
-      <SimpleGrid alignContent={"center"} spacing={4} columns={[1, null, 2, 3]}>
+      <SimpleGrid spacing={4} columns={[1, null, 2, 3]} width={"full"}>
         {productList.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
