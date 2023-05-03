@@ -12,7 +12,7 @@ const ProductTypePage = () => {
   return product ? (
     <CategoryPage product={product as ProductType} />
   ) : (
-    <Container minH={"calc(100vh - 98px)"}>
+    <Container>
       <AbsoluteCenter>
         <Spinner />
       </AbsoluteCenter>
