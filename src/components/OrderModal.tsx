@@ -1,5 +1,6 @@
 import { type ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import {
   Modal,
   ModalBody,
@@ -24,12 +25,25 @@ const OrderModal = ({ query, onDrawerOpen }: ModalProps) => {
   const { clearCart } = useCart();
   const success = query.success === "true";
   const canceled = query.canceled === "true";
+  const router = useRouter();
 
   useEffect(() => {
     (success || canceled) && onOpen();
   }, [canceled, onOpen, query, success]);
+
+  const handleClose = async () => {
+    if (success) {
+      clearCart();
+    }
+    const params = query;
+    delete params.success;
+    delete params.canceled;
+    await router.replace({ pathname: router.pathname, query: params }, undefined, { scroll: false, shallow: true });
+    onClose();
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={() => void handleClose()}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>{success ? "Order placed!" : canceled && "Order canceled"}</ModalHeader>
@@ -39,20 +53,14 @@ const OrderModal = ({ query, onDrawerOpen }: ModalProps) => {
         </ModalBody>
         <ModalFooter>
           {success ? (
-            <ActionButton
-              square
-              onClick={() => {
-                onClose();
-                clearCart();
-              }}
-            >
+            <ActionButton square onClick={() => void handleClose()}>
               Close
             </ActionButton>
           ) : (
             <ActionButton
               square
               onClick={() => {
-                onClose();
+                void handleClose();
                 onDrawerOpen();
               }}
             >
