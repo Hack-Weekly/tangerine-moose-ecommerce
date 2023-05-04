@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Stack } from "@chakra-ui/react";
 
 import { filters, products } from "~/data/data";
 import useFilter from "~/hooks/useFilter";
@@ -17,25 +17,15 @@ const CategoryPage = ({ product }: { product: ProductType }) => {
   }, [product]);
 
   return (
-    <Grid
-      templateAreas={`"filters filters"
-                      "products sort"`}
-      gridTemplateRows={"fit-content fit-content"}
-      gridTemplateColumns={"fit-content fit-content"}
-      gap="1"
-    >
-      <GridItem area={"filters"}>
-        <FilterGroup filters={filters[product]} onChange={setFilter} />
-      </GridItem>
-      <GridItem area={"sort"}>
+    <Stack>
+      <FilterGroup filters={filters[product]} onChange={setFilter} />
+      <Flex justifyContent={"center"}>
+        <ProductList productList={productList} />
         <Box h={"fit-content"} position={"sticky"} top={24}>
           <SortGroup onChange={setSortOption} />
         </Box>
-      </GridItem>
-      <GridItem area={"products"}>
-        <ProductList productList={productList} />
-      </GridItem>
-    </Grid>
+      </Flex>
+    </Stack>
   );
 };
 

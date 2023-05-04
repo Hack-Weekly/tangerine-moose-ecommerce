@@ -15,7 +15,7 @@ const ProductList = ({ productList }: { productList: Product[] }) => (
         ))}
       </Wrap>
     ) : (
-      <Empty />
+      <Empty message={"sorry, we’re all out."} />
     )}
   </Flex>
 );

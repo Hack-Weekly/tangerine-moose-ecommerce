@@ -12,7 +12,7 @@ const SortGroup = ({ onChange }: { onChange: (value: string) => void }) => {
   });
 
   return (
-    <>
+    <Stack w={"fit-content"}>
       <Flex justifyContent={"center"} p={3}>
         <ArrowsVertical />
       </Flex>
@@ -39,7 +39,7 @@ const SortGroup = ({ onChange }: { onChange: (value: string) => void }) => {
           </Tooltip>
         </Box>
       </Stack>
-    </>
+    </Stack>
   );
 };
 
