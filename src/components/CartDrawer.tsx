@@ -1,6 +1,7 @@
+import { type FormEvent } from "react";
 import { AddIcon, DeleteIcon, MinusIcon } from "@chakra-ui/icons";
-import { Link } from "@chakra-ui/next-js";
 import {
+  Box,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -19,13 +20,43 @@ import {
 
 import { ActionButton, IconOutlineButton } from "~/components/Button";
 import { useCart } from "~/contexts/cart";
+import getStripe from "~/lib/stripe";
 
 type CartDrawerProps = {
   isOpen: boolean;
   onClose: () => void;
 };
+
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity, cartItems, totalQuantity, totalPrice } = useCart();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/api/checkout_sessions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItems),
+      });
+      const data = (await response.json()) as { id: string };
+      const stripe = await getStripe();
+
+      if (!stripe) {
+        console.error("Stripe is not defined");
+        return;
+      }
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: data.id,
+      });
+
+      console.error(error.message);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <Drawer isOpen={isOpen} placement="right" size={"md"} onClose={onClose}>
@@ -125,9 +156,13 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 }).format(totalPrice / 100)}
               </Text>
             </Text>
-            <ActionButton size={"lg"} w={"full"} as={Link} href={"/checkout"} onClick={() => undefined}>
-              Checkout
-            </ActionButton>
+            <Box w={"full"}>
+              <form onSubmit={(event) => void handleSubmit(event)}>
+                <ActionButton type={"submit"} role={"link"} size={"lg"} w={"full"} square onClick={() => undefined}>
+                  Checkout
+                </ActionButton>
+              </form>
+            </Box>
           </VStack>
         </DrawerFooter>
       </DrawerContent>

@@ -8,6 +8,7 @@ type CartContextProps = {
   cartItems: CartItem[];
   addToCart: (product: Product, variant: Variant, quantity: number) => void;
   removeFromCart: (id: Product["id"], variantId: Variant["id"]) => void;
+  clearCart: () => void;
   increaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
   decreaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
   totalQuantity: number;
@@ -18,6 +19,7 @@ export const CartContext = createContext<CartContextProps>({
   cartItems: [],
   addToCart: () => undefined,
   removeFromCart: () => undefined,
+  clearCart: () => undefined,
   increaseQuantity: () => undefined,
   decreaseQuantity: () => undefined,
   totalQuantity: 0,
@@ -100,12 +102,17 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     setCartItems((currItems) => currItems.filter((item) => item.id !== id || item.variant.id !== variantId));
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
         removeFromCart,
+        clearCart,
         increaseQuantity,
         decreaseQuantity,
         totalQuantity,
