@@ -1,27 +1,41 @@
-/* eslint-disable */
-
+import { type NextApiRequest, type NextApiResponse } from "next";
 import Stripe from "stripe";
+
+import { type CartItem } from "~/types/cart";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", { apiVersion: "2022-11-15" });
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
+      const cartItems = req.body as CartItem[];
+
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: "price_1N3B5jFqEYfFMGYQwuq3qMyi",
-            quantity: 1,
-          },
-        ],
+        line_items: cartItems.map((product: CartItem) => {
+          return {
+            price_data: {
+              currency: "usd",
+              product_data: {
+                name: product.name,
+                description: product.variant.options.reduce(
+                  (acc: string, option: { value: string }) => `${acc} ${option.value} /`,
+                  "",
+                ),
+                images: [`${process.env.NEXT_PUBLIC_APP_URL || ""}${product.image_url}`],
+              },
+              unit_amount: product.price,
+            },
+            quantity: product.quantity,
+          };
+        }),
         mode: "payment",
-        success_url: `${req.headers.origin}/?success=true`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        success_url: `${req.headers.origin || ""}/?success=true`,
+        cancel_url: `${req.headers.origin || ""}/?canceled=true`,
       });
-      res.redirect(303, session.url);
+      res.status(200).json({ id: session.id });
     } catch (err: any) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
       res.status(err.statusCode || 500).json(err.message);
     }
   } else {
