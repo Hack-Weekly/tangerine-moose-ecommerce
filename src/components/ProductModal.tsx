@@ -1,15 +1,4 @@
-import {
-  Flex,
-  Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, Text } from "@chakra-ui/react";
 
 import ProductContent from "~/components/ProductContent";
 import type { Product } from "~/types/product";
@@ -24,11 +13,10 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size={["full", "lg", "xl"]} blockScrollOnMount={false}>
       <ModalOverlay />
-      <ModalContent p={"1rem"} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
-        <ModalHeader p={4} />
+      <ModalContent pt={8} px={4} pb={4} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
         <ModalCloseButton />
         <ModalBody>
-          <Stack direction={["column", "row"]}>
+          <Flex gap={6} direction={["column", "row"]}>
             <Image src={product.image_url} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
             <Flex flexDir={"column"} gap={4}>
               <Text fontWeight={"bold"} fontSize="xl">
@@ -43,7 +31,7 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                 }}
               />
             </Flex>
-          </Stack>
+          </Flex>
         </ModalBody>
       </ModalContent>
     </Modal>

@@ -1,7 +1,9 @@
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import { ShoppingBag } from "@carbon/icons-react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
-import { AbsoluteCenter, Box, Flex, HStack, IconButton, Stack, useDisclosure } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Flex, HStack, IconButton, Stack, useDisclosure, useOutsideClick } from "@chakra-ui/react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { CartDrawer } from "~/components/CartDrawer";
@@ -21,6 +23,17 @@ export default function NavBar() {
   const { isOpen: isMenuOpen, onOpen: onMenuOpen, onClose: onMenuClose } = useDisclosure();
   const { totalQuantity } = useCart();
   const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure();
+  const { asPath } = useRouter();
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    onMenuClose();
+  }, [asPath, onMenuClose]);
+
+  useOutsideClick({
+    ref: menuRef,
+    handler: () => onMenuClose(),
+  });
 
   return (
     <>
@@ -52,7 +65,7 @@ export default function NavBar() {
             <AbsoluteCenter axis={"horizontal"}>
               <Link
                 fontWeight={"bold"}
-                fontSize={"4xl"}
+                fontSize={["2xl", "4xl"]}
                 href={"/"}
                 _focusVisible={{ outline: "none", textDecoration: "underline" }}
               >
@@ -61,7 +74,7 @@ export default function NavBar() {
             </AbsoluteCenter>
             <HStack spacing={2}>
               <ActionButton
-                display={{ base: "none", md: "flex" }}
+                display={{ base: "none", lg: "flex" }}
                 onClick={sessionData ? () => void signOut() : () => void signIn()}
               >
                 {sessionData ? "Sign out" : "Sign in"}
@@ -82,7 +95,7 @@ export default function NavBar() {
             </HStack>
           </Flex>
           {isMenuOpen && (
-            <Stack pb={4} display={{ lg: "none" }} spacing={4}>
+            <Stack pb={4} display={{ lg: "none" }} spacing={4} ref={menuRef}>
               <Stack as={"nav"} spacing={4}>
                 {Links.map(({ label, href }) => (
                   <Link textColor={"primary.500"} key={href} href={href}>

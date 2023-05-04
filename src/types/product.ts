@@ -1,4 +1,5 @@
-type ProductType = "coffee" | "tea" | "equipment";
+export const productTypes = ["coffee", "tea", "equipment"] as const;
+export type ProductType = (typeof productTypes)[number];
 
 // TODO: dont use number type for money as floating point math is not precise
 //  use library like Dinero.js, Currency.js, and Numeral.js instead

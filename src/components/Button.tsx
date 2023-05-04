@@ -52,7 +52,6 @@ const OutlineButton = forwardRef(({ onClick, square, children, ...props }: Butto
 
 const IconOutlineButton = (props: IconButtonProps) => (
   <IconButton
-    size={"md"}
     borderRadius={0}
     colorScheme={"secondary"}
     variant={"outline"}
