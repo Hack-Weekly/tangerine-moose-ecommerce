@@ -24,10 +24,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <>
-      <Card minW="sm" maxW="md" borderRadius={0} boxShadow={"none"}>
-        <LinkBox>
+      <Card maxW="md" borderRadius={0} boxShadow={"none"}>
+        <LinkBox height={"full"}>
           <CardBody
             bg={"gray.100"}
+            height={"full"}
             transition={"all 0.2s ease-in-out"}
             _hover={{
               bgColor: product.color,
@@ -35,11 +36,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
           >
             <Image src={product.image_url} alt={product.name} />
             <Stack bg={"secondary.500"} p={4}>
-              <Flex alignItems={"center"} justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl">
+              <Flex justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl" gap={4}>
                 <LinkOverlay href={`/product/${product.slug}`}>
                   <Text>{product.name}</Text>
                 </LinkOverlay>
-                <Text>{`$${product.base_price / 100}`}</Text>
+                <Text>
+                  {new Intl.NumberFormat(undefined, {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(product.base_price / 100)}
+                </Text>
               </Flex>
               <Text>{product.primary_tag.toUpperCase()}</Text>
             </Stack>
