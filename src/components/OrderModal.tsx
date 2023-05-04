@@ -11,6 +11,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
+import { useCart } from "~/contexts/cart";
 import { ActionButton } from "./Button";
 
 type ModalProps = {
@@ -20,7 +21,7 @@ type ModalProps = {
 
 const OrderModal = ({ query, onDrawerOpen }: ModalProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const { clearCart } = useCart();
   const success = query.success === "true";
   const canceled = query.canceled === "true";
 
@@ -38,7 +39,13 @@ const OrderModal = ({ query, onDrawerOpen }: ModalProps) => {
         </ModalBody>
         <ModalFooter>
           {success ? (
-            <ActionButton square onClick={onClose}>
+            <ActionButton
+              square
+              onClick={() => {
+                onClose();
+                clearCart();
+              }}
+            >
               Close
             </ActionButton>
           ) : (
