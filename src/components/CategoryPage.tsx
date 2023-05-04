@@ -21,7 +21,7 @@ const CategoryPage = ({ product }: { product: ProductType }) => {
       <FilterGroup filters={filters[product]} onChange={setFilter} />
       <Flex justifyContent={"center"}>
         <ProductList productList={productList} />
-        <Box h={"fit-content"} position={"sticky"} top={24}>
+        <Box h={"fit-content"} position={"sticky"} top={24} px={2}>
           <SortGroup onChange={setSortOption} />
         </Box>
       </Flex>
