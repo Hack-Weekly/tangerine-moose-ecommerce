@@ -18,10 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               currency: "usd",
               product_data: {
                 name: product.name,
-                description: product.variant.options.reduce(
-                  (acc: string, option: { value: string }) => `${acc} ${option.value} /`,
-                  "",
-                ),
+                ...(product.variant && {
+                  description: product.variant.options
+                    .reduce((acc: string[], option: { value: string }) => [...acc, option.value], [])
+                    .join(" / "),
+                }),
                 images: [`${process.env.NEXT_PUBLIC_APP_URL || ""}${product.image_url}`],
               },
               unit_amount: product.price,

@@ -14,7 +14,7 @@ type ContentProps = {
 
 const ProductContent = ({ product, onAdd }: ContentProps) => {
   const [selectedVariant, setSelectedVariant] = useState<Variant | undefined>(() => {
-    return product.variants[0];
+    return product.price_varies ? product.variants?.[0] : undefined;
   });
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
@@ -31,7 +31,7 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
           }
           return option;
         });
-        return product.variants.find((variant) => {
+        return product.variants?.find((variant) => {
           return variant.options.every((option) => {
             return newOptions.some((newOption) => {
               return newOption.name === option.name && newOption.value === option.value;
@@ -56,21 +56,24 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
           }).format((selectedVariant.price * quantity) / 100)}
         </Text>
       )}
-      {product.options.map((option) => (
-        <Menu matchWidth key={option.name}>
-          <Dropdown
-            label={option.name}
-            value={selectedVariant?.options.find((selectedOption) => selectedOption.name === option.name)?.value ?? ""}
-          />
-          <MenuList borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
-            {option.values.map((value) => (
-              <MenuItem key={value} onClick={() => selectVariant(value, option)}>
-                {value}
-              </MenuItem>
-            ))}
-          </MenuList>
-        </Menu>
-      ))}
+      {product.price_varies &&
+        product.options?.map((option) => (
+          <Menu matchWidth key={option.name}>
+            <Dropdown
+              label={option.name}
+              value={
+                selectedVariant?.options.find((selectedOption) => selectedOption.name === option.name)?.value ?? ""
+              }
+            />
+            <MenuList borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
+              {option.values.map((value) => (
+                <MenuItem key={value} onClick={() => selectVariant(value, option)}>
+                  {value}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+        ))}
       <HStack spacing={"2"}>
         <IconOutlineButton
           icon={<MinusIcon />}
@@ -86,8 +89,8 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
       <div>
         <ActionButton
           onClick={() => {
-            if (!selectedVariant) return;
-            addToCart(product, selectedVariant, quantity);
+            if (!selectedVariant && product.price_varies) return;
+            addToCart(product, quantity, selectedVariant);
             onAdd?.();
           }}
           square
