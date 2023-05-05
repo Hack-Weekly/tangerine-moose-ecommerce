@@ -2123,6 +2123,424 @@ const teaProducts: Product[] = [
       },
     ],
   },
+  {
+    id: 2003,
+    name: "Assam Loose Tea",
+    slug: "assam-loose-tea",
+    description: "A classic, bold Assam with a rich, dark cup and full flavour.",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "loose leaf"],
+    base_price: 850,
+    price_varies: true,
+    image_url: "/tea/loose-leaf-b97017.svg",
+    color: "#b97017",
+    options: [
+      {
+        name: "Amount",
+        values: ["50g", "100g", "250g"],
+      },
+      {
+        name: "Package",
+        values: ["Regular", "Gift"],
+      },
+    ],
+    variants: [
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 850,
+      },
+      {
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 950,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 1700,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 1800,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 3000,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 3200,
+      },
+    ],
+  },
+  {
+    id: 2004,
+    name: "Assam Loose Tea",
+    slug: "assam-loose-tea",
+    description: "A classic, bold Assam with a rich, dark cup and full flavour.",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "tea bags"],
+    base_price: 750,
+    price_varies: true,
+    image_url: "/tea/tea-bag-b97017.svg",
+    color: "#b97017",
+    options: [
+      {
+        name: "Amount",
+        values: ["20 Tea Bags", "50 Tea Bags", "100 Tea Bags"],
+      },
+    ],
+    variants: [
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "20 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 750,
+      },
+      {
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 1500,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 2750,
+      },
+    ],
+  },
+  {
+    id: 2005,
+    name: "Darjeeling Loose Tea",
+    slug: "darjeeling-loose-tea",
+    description: "A second flush black tea with a well developed flavour, sweet and smooth.",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "loose leaf"],
+    base_price: 1000,
+    price_varies: true,
+    image_url: "/tea/loose-leaf-770a22.svg",
+    color: "#770a22",
+    options: [
+      {
+        name: "Amount",
+        values: ["50g", "100g", "250g"],
+      },
+      {
+        name: "Package",
+        values: ["Regular", "Gift"],
+      },
+    ],
+    variants: [
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 1000,
+      },
+      {
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 1100,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 2000,
+      },
+      {
+        id: 4,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 2100,
+      },
+      {
+        id: 5,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Regular",
+          },
+        ],
+        available: true,
+        price: 4000,
+      },
+      {
+        id: 6,
+        options: [
+          {
+            name: "Amount",
+            value: "250g",
+          },
+          {
+            name: "Package",
+            value: "Gift",
+          },
+        ],
+        available: true,
+        price: 4100,
+      },
+    ],
+  },
+  {
+    id: 2006,
+    name: "Darjeeling Loose Tea",
+    slug: "darjeeling-loose-tea",
+    description: "A second flush black tea with a well developed flavour, sweet and smooth.",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "black tea",
+    tags: ["black tea", "tea bags"],
+    base_price: 1000,
+    price_varies: true,
+    image_url: "/tea/tea-bag-770a22.svg",
+    color: "#770a22",
+    options: [
+      {
+        name: "Amount",
+        values: ["20 Tea Bags", "50 Tea Bags", "100 Tea Bags"],
+      },
+    ],
+    variants: [
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "20 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 1000,
+      },
+      {
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "50 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 1900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100 Tea Bags",
+          },
+        ],
+        available: true,
+        price: 3750,
+      },
+    ],
+  },
+  {
+    id: 2007,
+    name: "Ceremonial Organic Matcha",
+    slug: "ceremonial-grade-matcha",
+    description: "A green tea characterized by a rich aroma, mellow umami, and a vivid green color.",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "green tea",
+    tags: ["green tea", "powder"],
+    base_price: 2600,
+    price_varies: true,
+    image_url: "/tea/loose-leaf-079d37.svg",
+    color: "#079d37",
+    options: [
+      {
+        name: "Amount",
+        values: ["20g", "40g", "100g"],
+      },
+    ],
+    variants: [
+      {
+        id: 1,
+        options: [
+          {
+            name: "Amount",
+            value: "20g",
+          },
+        ],
+        available: true,
+        price: 2600,
+      },
+      {
+        id: 2,
+        options: [
+          {
+            name: "Amount",
+            value: "40g",
+          },
+        ],
+        available: true,
+        price: 4900,
+      },
+      {
+        id: 3,
+        options: [
+          {
+            name: "Amount",
+            value: "100g",
+          },
+        ],
+        available: true,
+        price: 10400,
+      },
+    ],
+  },
+  {
+    id: 2008,
+    name: "Sencha Loose Leaf",
+    slug: "sencha-loose-leaf",
+    description:
+      "A harmonious balance of umami, sweetness, bitterness, and astringency, with a bright fragrance like a sunny field. About 25 servings in this 100g size product",
+    created_at: "2022-12-11T05:00:00.000Z",
+    updated_at: "2022-12-11T05:00:00.000Z",
+    type: "tea",
+    primary_tag: "green tea",
+    tags: ["green tea", "loose leaf"],
+    base_price: 2500,
+    price_varies: false,
+    image_url: "/tea/loose-leaf-01511b.svg",
+    color: "#01511b",
+  },
 ];
 
 const equipmentProducts: Product[] = [
@@ -2337,7 +2755,7 @@ const allProducts: Product[] = [...coffeeProducts, ...teaProducts, ...equipmentP
 const products = { coffee: coffeeProducts, tea: teaProducts, equipment: equipmentProducts };
 const filters = {
   coffee: ["blend", "single origin", "decaf"],
-  tea: ["loose leaf", "tea bags"],
+  tea: ["loose leaf", "tea bags", "black tea", "green tea"],
   equipment: ["brewer", "filters"],
 };
 

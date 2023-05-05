@@ -75,7 +75,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           ) : (
             <>
               {cartItems.map((item) => (
-                <div key={`${item.id}-${item.variant.id}`}>
+                <div key={`${item.id}${item.variant ? `-${item.variant.id}` : ""}`}>
                   <HStack justifyContent={"space-between"} py={2} borderBottom={"1px"}>
                     <Flex>
                       <Image src={item.image_url} alt={item.name} boxSize={"64px"} mr={2} alignSelf={"center"} />
@@ -85,14 +85,15 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                             {item.name}
                           </Text>
                           <UnorderedList listStyleType={"none"} margin={0} fontSize={"sm"}>
-                            {item.variant.options.map((option) => (
-                              <ListItem key={option.name}>
-                                {`${option.name}: `}
-                                <Text as={"span"} fontWeight={"semibold"}>
-                                  {option.value}
-                                </Text>
-                              </ListItem>
-                            ))}
+                            {item.variant &&
+                              item.variant?.options.map((option) => (
+                                <ListItem key={option.name}>
+                                  {`${option.name}: `}
+                                  <Text as={"span"} fontWeight={"semibold"}>
+                                    {option.value}
+                                  </Text>
+                                </ListItem>
+                              ))}
                           </UnorderedList>
                         </div>
                       </Flex>
@@ -105,9 +106,9 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                           aria-label={"Decrement"}
                           onClick={() => {
                             if (item.quantity > 1) {
-                              decreaseQuantity(item.id, item.variant.id);
+                              decreaseQuantity({ id: item.id, variantId: item.variant?.id });
                             } else {
-                              removeFromCart(item.id, item.variant.id);
+                              removeFromCart({ id: item.id, variantId: item.variant?.id });
                             }
                           }}
                         />
@@ -117,12 +118,12 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                         <IconOutlineButton
                           icon={<AddIcon />}
                           aria-label={"Increment"}
-                          onClick={() => increaseQuantity(item.id, item.variant.id)}
+                          onClick={() => increaseQuantity({ id: item.id, variantId: item.variant?.id })}
                         />
                         <IconOutlineButton
                           icon={<DeleteIcon />}
                           aria-label={"Remove"}
-                          onClick={() => removeFromCart(item.id, item.variant.id)}
+                          onClick={() => removeFromCart({ id: item.id, variantId: item.variant?.id })}
                         />
                       </HStack>
                       <Text fontSize={"lg"} fontWeight={"semibold"}>

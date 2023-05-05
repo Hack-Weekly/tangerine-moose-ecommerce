@@ -1,16 +1,21 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 
 import useLocalStorage from "~/hooks/useLocalStorage";
-import { type CartItem } from "~/types/cart";
-import { type Product, type Variant } from "~/types/product";
+import type { CartItem } from "~/types/cart";
+import type { Product, Variant } from "~/types/product";
+
+type CartFnProps = {
+  id: Product["id"];
+  variantId?: Variant["id"];
+};
 
 type CartContextProps = {
   cartItems: CartItem[];
-  addToCart: (product: Product, variant: Variant, quantity: number) => void;
-  removeFromCart: (id: Product["id"], variantId: Variant["id"]) => void;
+  addToCart: (product: Product, quantity: number, variant?: Variant) => void;
+  removeFromCart: ({ id, variantId }: CartFnProps) => void;
   clearCart: () => void;
-  increaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
-  decreaseQuantity: (id: Product["id"], variantId: Variant["id"]) => void;
+  increaseQuantity: ({ id, variantId }: CartFnProps) => void;
+  decreaseQuantity: ({ id, variantId }: CartFnProps) => void;
   totalQuantity: number;
   totalPrice: number;
 };
@@ -29,6 +34,10 @@ export const CartContext = createContext<CartContextProps>({
 type CartProviderProps = {
   children: ReactNode;
 };
+
+const isExistingItem = (item: CartItem, id: Product["id"], variantId?: Variant["id"]) =>
+  item.id == id && item.variant?.id == variantId;
+
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("tangerine-moose-cart", []);
   const [isMounted, setIsMounted] = useState(false);
@@ -44,37 +53,29 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const totalPrice = useMemo(() => {
     if (!isMounted) return 0;
-    return cartItems.reduce((acc, item) => acc + item.quantity * item.variant.price, 0);
+    return cartItems.reduce(
+      (acc, item) => acc + (item.variant ? item.quantity * item.variant.price : item.quantity * item.price),
+      0,
+    );
   }, [cartItems, isMounted]);
 
-  const increaseQuantity = (id: Product["id"], variantId: Variant["id"]) => {
-    setCartItems((currItems) => {
-      return currItems.map((item) => {
-        if (item.id === id && item.variant.id === variantId) {
-          return { ...item, quantity: item.quantity + 1 };
-        } else {
-          return item;
-        }
-      });
-    });
+  const increaseQuantity = ({ id, variantId }: CartFnProps) => {
+    setCartItems((currItems) =>
+      currItems.map((item) => (isExistingItem(item, id, variantId) ? { ...item, quantity: item.quantity + 1 } : item)),
+    );
   };
 
-  const decreaseQuantity = (id: Product["id"], variantId: Variant["id"]) => {
-    setCartItems((currItems) => {
-      return currItems.map((item) => {
-        if (item.id === id && item.variant.id === variantId) {
-          return { ...item, quantity: item.quantity - 1 };
-        } else {
-          return item;
-        }
-      });
-    });
+  const decreaseQuantity = ({ id, variantId }: CartFnProps) => {
+    setCartItems((currItems) =>
+      currItems.map((item) => (isExistingItem(item, id, variantId) ? { ...item, quantity: item.quantity - 1 } : item)),
+    );
   };
 
-  const addToCart = (product: Product, variant: Variant, quantity = 1) => {
+  const addToCart = (product: Product, quantity = 1, variant?: Variant) => {
     setCartItems((currItems) => {
-      const existingItem = currItems.find((item) => item.id === product.id && item.variant.id === variant.id);
-      if (!existingItem) {
+      const itemInCart = currItems.find((item) => isExistingItem(item, product.id, variant?.id));
+
+      if (!itemInCart) {
         return [
           ...currItems,
           {
@@ -82,13 +83,15 @@ export const CartProvider = ({ children }: CartProviderProps) => {
             name: product.name,
             image_url: product.image_url,
             variant: variant,
-            price: variant.price,
+            ...(variant && { variant: variant }),
+            price: variant?.price || product.base_price,
             quantity: quantity,
           },
         ];
       } else {
+        // item already in cart, find item, update quantity
         return currItems.map((item) => {
-          if (item.id === product.id && item.variant.id === variant.id) {
+          if (isExistingItem(item, product.id, variant?.id)) {
             return { ...item, quantity: item.quantity + quantity };
           } else {
             return item;
@@ -98,8 +101,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
-  const removeFromCart = (id: Product["id"], variantId: Variant["id"]) => {
-    setCartItems((currItems) => currItems.filter((item) => item.id !== id || item.variant.id !== variantId));
+  const removeFromCart = ({ id, variantId }: CartFnProps) => {
+    setCartItems((currItems) => currItems.filter((item) => item.id !== id || item.variant?.id !== variantId));
   };
 
   const clearCart = () => {

@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               currency: "usd",
               product_data: {
                 name: product.name,
-                description: product.variant.options.map((option) => option.value).join(" / "),
+                description: product.variant?.options.map((option) => option.value).join(" / "),
                 images: [`${process.env.NEXT_PUBLIC_APP_URL || ""}${product.image_url}`],
               },
               unit_amount: product.price,

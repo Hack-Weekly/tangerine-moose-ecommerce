@@ -4,7 +4,7 @@ export interface CartItem {
   id: Product["id"];
   name: Product["name"];
   image_url: Product["image_url"];
-  variant: Variant;
+  variant?: Variant;
   price: number;
   quantity: number;
 }

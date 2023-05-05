@@ -13,8 +13,8 @@ export type Product = {
   type: ProductType;
   primary_tag: string;
   tags: string[];
-  options: Option[];
-  variants: Variant[];
+  options?: Option[];
+  variants?: Variant[];
   image_url: string;
   color: string;
   base_price: number; // in cents //
