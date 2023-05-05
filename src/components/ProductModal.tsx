@@ -12,18 +12,9 @@ type ProductModalProps = {
 const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size={["full", "lg", "xl"]} blockScrollOnMount={false}>
-      <ModalOverlay backdropFilter={"blur(2px)"} />
+      <ModalOverlay />
       <ModalContent pt={8} px={4} pb={4} borderRadius={0} borderWidth={1} borderColor={"primary.500"}>
-        <ModalCloseButton
-          variant={"outline"}
-          colorScheme={"secondary"}
-          border={"1px solid transparent"}
-          borderRadius={0}
-          _hover={{
-            bg: "none",
-            border: "1px solid black",
-          }}
-        />
+        <ModalCloseButton />
         <ModalBody>
           <Flex gap={6} direction={["column", "row"]}>
             <Image src={product.image_url} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
