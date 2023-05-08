@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Center, Flex, Image, Link, Text, type StyleConfig } from "@chakra-ui/react";
 
 const Empty = ({ message }: { message?: string }) => {
-  const [color, setColor] = useState("blue.500");
+  const [color, setColor] = useState("");
   useEffect(() => setColor(`${random(["red", "purple", "blue", "green"]) || "primary"}.500`), []);
   return (
     <Flex flexDir={"column"} alignContent={"center"} textAlign={"center"}>
@@ -10,7 +10,7 @@ const Empty = ({ message }: { message?: string }) => {
         <Image boxSize={"xl"} src="/nothingtoseehere.svg" alt="empty page" minBlockSize={"lg"} />
       </Center>
       <Text fontSize={["4xl", "3xl"]} fontWeight={"bold"} m={"auto"} w={["auto", null, "50%"]}>
-        {message ? message : DefaultMessage(color)}
+        {message ? message : color && DefaultMessage(color)}
       </Text>
     </Flex>
   );
