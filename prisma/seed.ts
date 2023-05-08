@@ -1853,7 +1853,7 @@ const products: Prisma.ProductCreateInput[] = [
   },
   {
     name: "Earl Grey Loose Tea",
-    slug: "early-grey-loose-tea",
+    slug: "earl-grey-loose-tea",
     description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
     createdAt: "2022-12-11T05:00:00.000Z",
     updatedAt: "2022-12-11T05:00:00.000Z",
@@ -1965,7 +1965,7 @@ const products: Prisma.ProductCreateInput[] = [
   },
   {
     name: "Earl Grey Tea Bags",
-    slug: "early-grey-tea-bags",
+    slug: "earl-grey-tea-bags",
     description: "Rich black tea with creamy-sweet vanilla and a citrusy hint of bergamot",
     createdAt: "2022-12-11T05:00:00.000Z",
     updatedAt: "2022-12-11T05:00:00.000Z",

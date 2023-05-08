@@ -34,21 +34,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
               bgColor: product.color,
             }}
           >
-            <Image src={product.imageUrl} alt={product.name} />
-            <Stack bg={"secondary.500"} p={4}>
-              <Flex justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl" gap={4}>
-                <LinkOverlay href={`/product/${product.slug}`}>
-                  <Text>{product.name}</Text>
-                </LinkOverlay>
-                <Text>
-                  {new Intl.NumberFormat(undefined, {
-                    style: "currency",
-                    currency: "USD",
-                    minimumFractionDigits: 0,
-                  }).format(product.basePrice)}
-                </Text>
+            <Stack height={"full"} justifyContent={"space-between"}>
+              <Flex height={"full"} flexDir={"column"} justifyContent={"center"}>
+                <Image src={product.imageUrl} alt={product.name} />
               </Flex>
-              <Text>{product.primaryTag.toUpperCase()}</Text>
+              <Stack bg={"secondary.500"} p={4}>
+                <Flex justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl" gap={4}>
+                  <LinkOverlay href={`/product/${product.slug}`}>
+                    <Text>{product.name}</Text>
+                  </LinkOverlay>
+                  <Text>
+                    {new Intl.NumberFormat(undefined, {
+                      style: "currency",
+                      currency: "USD",
+                      minimumFractionDigits: 0,
+                    }).format(product.basePrice)}
+                  </Text>
+                </Flex>
+                <Text>{product.primaryTag.toUpperCase()}</Text>
+              </Stack>
             </Stack>
           </CardBody>
         </LinkBox>
