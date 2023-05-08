@@ -165,7 +165,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "blend",
     tags: ["blend"],
-    basePrice: 17,
+    basePrice: 16,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-076a04.svg",
     color: "#076a04",
@@ -193,7 +193,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 17,
+          price: 16,
         },
         {
           options: [
@@ -207,7 +207,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 17,
+          price: 16,
         },
         {
           options: [
@@ -221,7 +221,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 17,
+          price: 16,
         },
         {
           options: [
@@ -235,7 +235,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 32,
+          price: 29,
         },
         {
           options: [
@@ -249,7 +249,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 32,
+          price: 29,
         },
         {
           options: [
@@ -263,7 +263,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 32,
+          price: 29,
         },
         {
           options: [
@@ -277,7 +277,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 80,
+          price: 67,
         },
         {
           options: [
@@ -291,7 +291,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 80,
+          price: 67,
         },
         {
           options: [
@@ -305,7 +305,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 80,
+          price: 67,
         },
       ],
     },
@@ -627,7 +627,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "blend",
     tags: ["blend"],
-    basePrice: 17,
+    basePrice: 18,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-4d2364.svg",
     color: "#4d2364",
@@ -655,7 +655,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 18,
         },
         {
           options: [
@@ -669,7 +669,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 18,
         },
         {
           options: [
@@ -683,7 +683,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 18,
         },
         {
           options: [
@@ -697,7 +697,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 35,
         },
         {
           options: [
@@ -711,7 +711,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 35,
         },
         {
           options: [
@@ -725,7 +725,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 35,
         },
         {
           options: [
@@ -739,7 +739,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
         {
           options: [
@@ -753,7 +753,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
         {
           options: [
@@ -767,7 +767,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
       ],
     },
@@ -781,7 +781,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "blend",
     tags: ["blend"],
-    basePrice: 17,
+    basePrice: 16.5,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-730640.svg",
     color: "#730640",
@@ -809,7 +809,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 16.5,
         },
         {
           options: [
@@ -823,7 +823,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 16.5,
         },
         {
           options: [
@@ -837,7 +837,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 16.5,
         },
         {
           options: [
@@ -851,7 +851,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 30.5,
         },
         {
           options: [
@@ -865,7 +865,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 30.5,
         },
         {
           options: [
@@ -879,7 +879,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 30.5,
         },
         {
           options: [
@@ -893,7 +893,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
         {
           options: [
@@ -907,7 +907,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
         {
           options: [
@@ -921,7 +921,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 84,
         },
       ],
     },
@@ -935,7 +935,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 20,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-73060f.svg",
     color: "#73060f",
@@ -963,7 +963,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 20,
         },
         {
           options: [
@@ -977,7 +977,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 20,
         },
         {
           options: [
@@ -991,7 +991,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 20,
         },
         {
           options: [
@@ -1005,7 +1005,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 40,
         },
         {
           options: [
@@ -1019,7 +1019,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 40,
         },
         {
           options: [
@@ -1033,7 +1033,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 40,
         },
         {
           options: [
@@ -1047,7 +1047,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90,
         },
         {
           options: [
@@ -1061,7 +1061,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90,
         },
         {
           options: [
@@ -1075,7 +1075,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90,
         },
       ],
     },
@@ -1089,7 +1089,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 24,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-636637.svg",
     color: "#636637",
@@ -1117,7 +1117,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 24,
         },
         {
           options: [
@@ -1131,7 +1131,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 24,
         },
         {
           options: [
@@ -1145,7 +1145,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 24,
         },
         {
           options: [
@@ -1159,7 +1159,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 46,
         },
         {
           options: [
@@ -1173,7 +1173,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 46,
         },
         {
           options: [
@@ -1187,7 +1187,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 46,
         },
         {
           options: [
@@ -1201,7 +1201,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 98,
         },
         {
           options: [
@@ -1215,7 +1215,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 98,
         },
         {
           options: [
@@ -1229,7 +1229,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 98,
         },
       ],
     },
@@ -1243,7 +1243,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 21,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-d86d56.svg",
     color: "#d86d56",
@@ -1271,7 +1271,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 21,
         },
         {
           options: [
@@ -1285,7 +1285,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 21,
         },
         {
           options: [
@@ -1299,7 +1299,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 21,
         },
         {
           options: [
@@ -1313,7 +1313,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 41,
         },
         {
           options: [
@@ -1327,7 +1327,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 41,
         },
         {
           options: [
@@ -1341,7 +1341,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 41,
         },
         {
           options: [
@@ -1355,7 +1355,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 91,
         },
         {
           options: [
@@ -1369,7 +1369,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 91,
         },
         {
           options: [
@@ -1383,7 +1383,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 91,
         },
       ],
     },
@@ -1398,7 +1398,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 23,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-51a696.svg",
     color: "#51a696",
@@ -1426,7 +1426,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 23,
         },
         {
           options: [
@@ -1440,7 +1440,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 23,
         },
         {
           options: [
@@ -1454,7 +1454,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 23,
         },
         {
           options: [
@@ -1468,7 +1468,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 44,
         },
         {
           options: [
@@ -1482,7 +1482,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 44,
         },
         {
           options: [
@@ -1496,7 +1496,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 44,
         },
         {
           options: [
@@ -1510,7 +1510,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 94,
         },
         {
           options: [
@@ -1524,7 +1524,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 94,
         },
         {
           options: [
@@ -1538,7 +1538,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 94,
         },
       ],
     },
@@ -1552,7 +1552,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 22,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-5369ce.svg",
     color: "#5369ce",
@@ -1580,7 +1580,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 22,
         },
         {
           options: [
@@ -1594,7 +1594,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 22,
         },
         {
           options: [
@@ -1608,7 +1608,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 22,
         },
         {
           options: [
@@ -1622,7 +1622,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 42,
         },
         {
           options: [
@@ -1636,7 +1636,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 42,
         },
         {
           options: [
@@ -1650,7 +1650,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 42,
         },
         {
           options: [
@@ -1664,7 +1664,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 92,
         },
         {
           options: [
@@ -1678,7 +1678,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 92,
         },
         {
           options: [
@@ -1692,7 +1692,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 92,
         },
       ],
     },
@@ -1706,7 +1706,7 @@ const products: Prisma.ProductCreateInput[] = [
     type: "coffee" as ProductType,
     primaryTag: "single origin",
     tags: ["single origin"],
-    basePrice: 17,
+    basePrice: 19.5,
     priceVaries: true,
     imageUrl: "/coffee/bean-bag-d0d464.svg",
     color: "#d0d464",
@@ -1734,7 +1734,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 19.5,
         },
         {
           options: [
@@ -1748,7 +1748,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 19.5,
         },
         {
           options: [
@@ -1762,7 +1762,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 19,
+          price: 19.5,
         },
         {
           options: [
@@ -1776,7 +1776,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 37.5,
         },
         {
           options: [
@@ -1790,7 +1790,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 37.5,
         },
         {
           options: [
@@ -1804,7 +1804,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 36,
+          price: 37.5,
         },
         {
           options: [
@@ -1818,7 +1818,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90.5,
         },
         {
           options: [
@@ -1832,7 +1832,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90.5,
         },
         {
           options: [
@@ -1846,7 +1846,7 @@ const products: Prisma.ProductCreateInput[] = [
             },
           ],
           available: true,
-          price: 85,
+          price: 90.5,
         },
       ],
     },
