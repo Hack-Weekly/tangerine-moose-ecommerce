@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { Container, Flex, Image, Progress, Stack, Text } from "@chakra-ui/react";
 
 import Empty from "~/components/Empty";
 import ProductContent from "~/components/ProductContent";
@@ -7,7 +8,17 @@ import { allProducts } from "~/data/data";
 
 const ProductPage = () => {
   const { query } = useRouter();
+  const [loading, setLoading] = useState(true);
   const product = allProducts.find((result) => result.slug === query.slug);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timerId);
+  }, []);
+
+  if (loading) return <Progress size="xs" isIndeterminate colorScheme={"primary"} />;
 
   return (
     <Container maxW="4xl" mt={[null, "16"]}>
