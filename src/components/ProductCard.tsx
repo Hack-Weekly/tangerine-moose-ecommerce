@@ -36,7 +36,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           >
             <Stack height={"full"} justifyContent={"space-between"}>
               <Flex height={"full"} flexDir={"column"} justifyContent={"center"}>
-                <Image src={product.imageUrl} alt={product.name} />
+                <Image src={product.imageUrl} alt={product.name} minW={"xs"} />
               </Flex>
               <Stack bg={"secondary.500"} p={4}>
                 <Flex justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl" gap={4}>
