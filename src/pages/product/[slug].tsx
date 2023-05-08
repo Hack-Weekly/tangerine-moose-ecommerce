@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Container, Flex, Image, Progress, Stack, Text } from "@chakra-ui/react";
 
@@ -11,9 +11,12 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const product = allProducts.find((result) => result.slug === query.slug);
 
-  setTimeout(() => {
-    setLoading(false);
-  }, 500);
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    return () => clearTimeout(timerId);
+  }, []);
 
   if (loading) return <Progress size="xs" isIndeterminate colorScheme={"primary"} />;
 
