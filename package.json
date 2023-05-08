@@ -9,7 +9,11 @@
     "postinstall": "prisma generate",
     "lint": "next lint",
     "prepare": "husky install",
-    "start": "next start"
+    "start": "next start",
+    "db-seed": "NODE_ENV=development prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx,css,md,json}": "prettier --write"
@@ -42,12 +46,13 @@
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
     "@types/carbon__icons-react": "^11.16.0",
     "@types/eslint": "^8.37.0",
-    "@types/node": "^18.16.1",
+    "@types/node": "^18.16.5",
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
+    "decimal.js": "^10.4.3",
     "eslint": "^8.39.0",
     "eslint-config-next": "^13.3.1",
     "eslint-config-prettier": "^8.8.0",
@@ -55,6 +60,8 @@
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "prisma": "^4.13.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },
   "ct3aMetadata": {

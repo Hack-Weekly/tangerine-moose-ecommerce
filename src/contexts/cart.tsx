@@ -81,10 +81,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
           {
             id: product.id,
             name: product.name,
-            image_url: product.image_url,
+            image_url: product.imageUrl,
             variant: variant,
             ...(variant && { variant: variant }),
-            price: variant?.price || product.base_price,
+            price: variant?.price || product.basePrice,
             quantity: quantity,
           },
         ];

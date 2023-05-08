@@ -1,34 +1,25 @@
-export const productTypes = ["coffee", "tea", "equipment"] as const;
-export type ProductType = (typeof productTypes)[number];
+import type { Product as PrismaProduct, Variant as PrismaVariant } from "@prisma/client";
 
 // TODO: dont use number type for money as floating point math is not precise
 //  use library like Dinero.js, Currency.js, and Numeral.js instead
-export type Product = {
-  id: number;
-  name: string;
-  slug: string;
-  description: string;
-  created_at: string;
-  updated_at: string;
-  type: ProductType;
-  primary_tag: string;
-  tags: string[];
-  options?: Option[];
-  variants?: Variant[];
-  image_url: string;
-  color: string;
-  base_price: number; // in cents //
-  price_varies: boolean;
+export type Product = Omit<PrismaProduct, "basePrice" | "createdAt" | "updatedAt" | "variants" | "options"> & {
+  basePrice: number;
+  createdAt: string;
+  updatedAt: string;
+  variants: Variant[];
+  options: ProductOption[];
 };
-
-export type Option = {
+export type ProductOption = {
   name: string;
   values: string[];
 };
 
-export type Variant = {
-  id: number;
-  options: { name: Option["name"]; value: Option["values"][0] }[];
-  available: boolean;
+export type Variant = Omit<PrismaVariant, "price" | "options"> & {
   price: number;
+  options: VariantOption[];
+};
+
+export type VariantOption = {
+  name: string;
+  value: string;
 };

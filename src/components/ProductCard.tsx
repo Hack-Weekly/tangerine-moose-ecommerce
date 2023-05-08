@@ -34,7 +34,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               bgColor: product.color,
             }}
           >
-            <Image src={product.image_url} alt={product.name} />
+            <Image src={product.imageUrl} alt={product.name} />
             <Stack bg={"secondary.500"} p={4}>
               <Flex justifyContent={"space-between"} fontWeight={"bold"} fontSize="xl" gap={4}>
                 <LinkOverlay href={`/product/${product.slug}`}>
@@ -44,10 +44,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
                   {new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currency: "USD",
-                  }).format(product.base_price / 100)}
+                    minimumFractionDigits: 0,
+                  }).format(product.basePrice)}
                 </Text>
               </Flex>
-              <Text>{product.primary_tag.toUpperCase()}</Text>
+              <Text>{product.primaryTag.toUpperCase()}</Text>
             </Stack>
           </CardBody>
         </LinkBox>

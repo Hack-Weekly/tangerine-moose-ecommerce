@@ -20,7 +20,7 @@ const sortOptions: SortOption[] = [
         <Growth />
       </Box>
     ),
-    fn: (a: Product, b: Product) => Number(a.updated_at < b.updated_at),
+    fn: (a: Product, b: Product) => Number(a.updatedAt < b.updatedAt),
   },
   {
     value: "Price: Low to High",
@@ -30,7 +30,7 @@ const sortOptions: SortOption[] = [
         <ArrowUp />
       </CombinedIcon>
     ),
-    fn: (a: Product, b: Product) => Number(a.base_price > b.base_price),
+    fn: (a: Product, b: Product) => Number(a.basePrice > b.basePrice),
   },
   {
     value: "Price: High to Low",
@@ -40,7 +40,7 @@ const sortOptions: SortOption[] = [
         <ArrowDown />
       </CombinedIcon>
     ),
-    fn: (a: Product, b: Product) => Number(a.base_price < b.base_price),
+    fn: (a: Product, b: Product) => Number(a.basePrice < b.basePrice),
   },
   {
     value: "Alphabetical",

@@ -130,7 +130,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                         {new Intl.NumberFormat(undefined, {
                           style: "currency",
                           currency: "USD",
-                        }).format((item.price * item.quantity) / 100)}
+                        }).format(item.price * item.quantity)}
                       </Text>
                     </VStack>
                   </HStack>
@@ -154,7 +154,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 {new Intl.NumberFormat(undefined, {
                   style: "currency",
                   currency: "USD",
-                }).format(totalPrice / 100)}
+                }).format(totalPrice)}
               </Text>
             </Text>
             <Box w={"full"}>

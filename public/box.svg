@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 6px; stroke-linejoin: round; fill: rgb(223, 178, 119);" d="M 14.704 115.428 L 195.055 219.582 L 385.822 110.494 L 201.085 5.244 L 14.704 115.428 Z"/>
+  <path style="stroke-linecap: round; stroke: rgb(0, 0, 0); fill: rgba(216, 216, 216, 0); stroke-width: 6px; stroke-linejoin: round;" d="M 107.347 157.638 L 276.186 57.321"/>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 6px; stroke-linejoin: round; fill: rgb(223, 178, 119);" d="M 11.963 118.169 L 14.156 289.201 L 192.314 394.452 L 379.244 285.912 L 383.081 114.332 L 195.603 222.871 L 11.963 118.169 Z"/>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 4px; stroke-linecap: round; stroke-linejoin: round;" d="M 195.055 221.775 L 193.411 395"/>
+  <rect x="307.002" y="472.625" width="109.458" height="35.978" style="stroke: rgb(0, 0, 0); stroke-linejoin: round; stroke-width: 4px; fill: rgb(141, 133, 126);" transform="matrix(0.862062, -0.506803, -0.055568, 1.192678, -20.160793, -89.120056)"/>
+</svg>
