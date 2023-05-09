@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 description: product.variant?.options.map((option) => option.value).join(" / "),
                 images: [`${process.env.NEXT_PUBLIC_APP_URL || ""}${product.image_url}`],
               },
-              unit_amount: product.price,
+              unit_amount: product.price * 100,
             },
             quantity: product.quantity,
           };
