@@ -60,3 +60,36 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+enum ProductType {
+    coffee
+    tea
+    equipment
+}
+
+model Variant {
+    id        Int      @id @default(autoincrement())
+    options   Json[]   @db.Json
+    available Boolean
+    price     Decimal  @db.Money
+    product   Product? @relation(fields: [productId], references: [id])
+    productId String?
+}
+
+model Product {
+    id          String      @id @default(cuid())
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    slug        String      @unique
+    name        String
+    description String
+    type        ProductType
+    primaryTag  String
+    tags        String[]
+    options     Json        @db.Json
+    variants    Variant[]
+    imageUrl    String      @default("/box.svg")
+    color       String
+    basePrice   Decimal     @db.Money
+    priceVaries Boolean     @default(false)
+}

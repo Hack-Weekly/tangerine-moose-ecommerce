@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 description: product.variant?.options.map((option) => option.value).join(" / "),
                 images: [`${process.env.NEXT_PUBLIC_APP_URL || ""}${product.image_url}`],
               },
-              unit_amount: product.price,
+              unit_amount: product.price * 100,
             },
             quantity: product.quantity,
           };
@@ -31,6 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         cancel_url: `${req.headers.origin || ""}/?canceled=true`,
       });
       res.status(200).json({ id: session.id });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-member-access
       res.status(err.statusCode || 500).json(err.message);

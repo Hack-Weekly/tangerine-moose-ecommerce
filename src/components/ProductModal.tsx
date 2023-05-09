@@ -17,12 +17,12 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
         <ModalCloseButton />
         <ModalBody>
           <Flex gap={6} direction={["column", "row"]}>
-            <Image src={product.image_url} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
+            <Image src={product.imageUrl} alt={product.name} boxSize={"200px"} alignSelf={"center"} />
             <Flex flexDir={"column"} gap={4}>
               <Text fontWeight={"bold"} fontSize="xl">
                 {product.name}
               </Text>
-              <Text>{product.primary_tag.toUpperCase()}</Text>
+              <Text>{product.primaryTag.toUpperCase()}</Text>
               <Text>{product.description}</Text>
               <ProductContent
                 product={product}

@@ -5,7 +5,7 @@ import { HStack, Menu, MenuItem, MenuList, Text } from "@chakra-ui/react";
 import { ActionButton, IconOutlineButton } from "~/components/Button";
 import Dropdown from "~/components/Dropdown";
 import { useCart } from "~/contexts/cart";
-import type { Option, Product, Variant } from "~/types/product";
+import type { Product, ProductOption, Variant } from "~/types/product";
 
 type ContentProps = {
   product: Product;
@@ -14,12 +14,12 @@ type ContentProps = {
 
 const ProductContent = ({ product, onAdd }: ContentProps) => {
   const [selectedVariant, setSelectedVariant] = useState<Variant | undefined>(() => {
-    return product.price_varies ? product.variants?.[0] : undefined;
+    return product.priceVaries ? product.variants?.[0] : undefined;
   });
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
 
-  const selectVariant = (value: string, selectedOption: Option) => {
+  const selectVariant = (value: string, selectedOption: ProductOption) => {
     setSelectedVariant((prevState) => {
       if (prevState) {
         const newOptions = prevState.options.map((option) => {
@@ -50,13 +50,14 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
     <>
       {selectedVariant && (
         <Text fontWeight={"bold"} fontSize="xl">
-          {new Intl.NumberFormat(undefined, {
+          {new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
-          }).format((selectedVariant.price * quantity) / 100)}
+            minimumFractionDigits: 0,
+          }).format(selectedVariant.price * quantity)}
         </Text>
       )}
-      {product.price_varies &&
+      {product.priceVaries &&
         product.options?.map((option) => (
           <Menu matchWidth key={option.name}>
             <Dropdown
@@ -89,7 +90,7 @@ const ProductContent = ({ product, onAdd }: ContentProps) => {
       <div>
         <ActionButton
           onClick={() => {
-            if (!selectedVariant && product.price_varies) return;
+            if (!selectedVariant && product.priceVaries) return;
             addToCart(product, quantity, selectedVariant);
             onAdd?.();
           }}
